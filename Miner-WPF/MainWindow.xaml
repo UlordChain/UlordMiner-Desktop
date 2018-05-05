@@ -1,0 +1,25 @@
+﻿<Window x:Class="Miner_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Miner_WPF"
+        xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+        mc:Ignorable="d"
+        Title="Ulord" Height="70" Width="70" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True"  Background="Transparent" Topmost="True" ShowInTaskbar="False"
+        Icon="Ulord.ico">
+    <Grid>
+        <Ellipse x:Name="ellipse" Width="60" Height="60" StrokeThickness="1" Stroke="{StaticResource WhiteBrush}" Fill="{StaticResource LinearGradientBrushCicle}">
+            <Ellipse.Effect>
+                <DropShadowEffect x:Name="shadow" Color="{StaticResource White}" ShadowDepth="0" BlurRadius="10"/>
+            </Ellipse.Effect>
+        </Ellipse>
+        <Path x:Name="path1" Data="M 0.153967333824635,26.0156408691406 C 14.5769836669123,34 43.4230163330877,24 57.8460326661754,26.0156408691406 A 29,29 0,0,1 29,58 A 29,29 0,0,1 0.153967333824635,26.0156408691406 Z" Margin="6,6,0,0" Opacity="0.7" Fill="{StaticResource LinearGradientBrushUp}"/>
+        <Path x:Name="path2" Data="M 0.153967333824635,26.0156408691406 C 14.5769836669123,30 43.4230163330877,15 57.8460326661754,26.0156408691406 A 29,29 0,0,1 29,58 A 29,29 0,0,1 0.153967333824635,26.0156408691406 Z"  Margin="6,6,0,0" Opacity="0.7" Fill="{StaticResource LinearGradientBrushUp}"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ed:BlockArrow Height="10" Width="6" Orientation="{Binding Path=IsUP, Mode=TwoWay, Converter={StaticResource PerformanceSignOrientationConverter}}" Fill="{StaticResource DarkBrush}" ArrowBodySize="0.2" Margin="0,0,0,0" VerticalAlignment="Center"/>
+            <Label Content="{Binding Path=ComputeAbility, Mode=TwoWay, Converter={StaticResource PerfomanceLabelContentConverter}, ConverterParameter=0}" FontSize="14" Foreground="{StaticResource DarkBrush}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="1"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,33 @@
+﻿<Window x:Class="Miner_WPF.Controls.NotifyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Miner_WPF.Controls"
+        xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+        mc:Ignorable="d"
+        Title="NotifyWindow" Height="60" Width="200" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True" Background="Transparent" Topmost="True" ShowInTaskbar="False">
+    <Window.Resources>
+        <Storyboard x:Key="load" RepeatBehavior="Forever" >
+            <DoubleAnimation Storyboard.TargetName="arc_load" Storyboard.TargetProperty="StartAngle"
+                             From="0" To="360"   Duration="0:0:3"/>
+            <DoubleAnimation Storyboard.TargetName="arc_load" Storyboard.TargetProperty="EndAngle"
+                             From="90" To="450" Duration="0:0:3"/>
+        </Storyboard>
+    </Window.Resources>
+    <Border CornerRadius="5" Background="{StaticResource DarkBrush}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.7*"/>
+            </Grid.ColumnDefinitions>
+            <ed:Arc x:Name="arc_load" Grid.Column="0" Width="30" Height="30" ArcThickness="0.3" ArcThicknessUnit="Percent" StartAngle="0" EndAngle="90" Opacity="0.9" Stretch="None" Fill="{StaticResource WhiteBrush}"/>
+            <Label Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="{StaticResource WhiteBrush}">
+                <TextBlock x:Name="text_Msg" TextWrapping="Wrap">
+                    在此输入要换行的文字，前提是它足够长
+                </TextBlock>
+            </Label>
+        </Grid>
+    </Border>
+</Window>
