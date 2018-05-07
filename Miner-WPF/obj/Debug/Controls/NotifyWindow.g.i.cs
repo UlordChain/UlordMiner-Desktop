@@ -71,7 +71,7 @@ namespace Miner_WPF.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Ulord挖矿客户端;component/controls/notifywindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UlordMiner;component/controls/notifywindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Controls\NotifyWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -116,7 +116,7 @@ namespace Miner_WPF {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Ulord挖矿客户端;component/windowconfig.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UlordMiner;component/windowconfig.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\WindowConfig.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
