@@ -148,7 +148,7 @@ namespace Miner_WPF
             {
                 action?.Invoke("请输入账户！");
             }
-            else if (!string.IsNullOrEmpty(model.Config.Id) && !Regex.IsMatch(model.Config.Id, "^[a-zA-Z0-9]+$"))
+            else if (!string.IsNullOrEmpty(model.Config.Id) && !Regex.IsMatch(model.Config.Id, "^[a-zA-Z0-9]{0,20}$"))
             {
                 action?.Invoke("编号只能为数字和字母！");
             }
