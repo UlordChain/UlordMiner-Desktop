@@ -3,14 +3,16 @@
 ################################################################################
 
 /.vs
-/Miner-UWP
-/Common/bin/Debug
-/Common/obj/Debug
-/Contract/obj/Debug
-/Contract/bin/Debug
+/Common/bin
+/Common/obj
+/Contract/obj
+/Contract/bin
 /Installer/Debug
-/Miner-WPF/bin/Debug
-/Miner-WPF/obj/Debug
-/Ulord/obj/Debug
-/Ulord/bin/Debug
-/Test/bin/Debug/plugins
+/Installer/Release
+/Miner-UWP
+/Miner-WPF/bin
+/Miner-WPF/obj
+/Ulord/obj
+/Ulord/bin
+/Test/obj
+/Test/bin
