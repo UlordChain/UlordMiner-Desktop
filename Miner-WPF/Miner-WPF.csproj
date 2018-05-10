@@ -177,4 +177,11 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>echo f |xcopy "$(ProjectDir)Ulord.ico" "$(TargetDir)Ulord.ico" /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>

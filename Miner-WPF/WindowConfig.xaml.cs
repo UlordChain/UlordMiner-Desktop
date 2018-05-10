@@ -150,7 +150,7 @@ namespace Miner_WPF
             }
             else if (!string.IsNullOrEmpty(model.Config.Id) && !Regex.IsMatch(model.Config.Id, "^[a-zA-Z0-9]{0,20}$"))
             {
-                action?.Invoke("编号只能为数字和字母！");
+                action?.Invoke("编号只能为不超过20为字符的数字和字母！");
             }
             else if (model.Config.Thread < 0)
             {

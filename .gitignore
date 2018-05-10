@@ -2,4 +2,15 @@
 # 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
 ################################################################################
 
+/.vs
 /Miner-UWP
+/Common/bin/Debug
+/Common/obj/Debug
+/Contract/obj/Debug
+/Contract/bin/Debug
+/Installer/Debug
+/Miner-WPF/bin/Debug
+/Miner-WPF/obj/Debug
+/Ulord/obj/Debug
+/Ulord/bin/Debug
+/Test/bin/Debug/plugins

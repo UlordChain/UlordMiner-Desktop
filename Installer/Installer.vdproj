@@ -15,32 +15,20 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0108304252F561B1EF88760CF284F137"
-        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_0108304252F561B1EF88760CF284F137"
-        "OwnerKey" = "8:_B5B5B256F8C34B3F89FBD56D34CE91CE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_01A5566E6897C7B857885E38593B3161"
-        "OwnerKey" = "8:_0108304252F561B1EF88760CF284F137"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_01A5566E6897C7B857885E38593B3161"
-        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_077A312EF78712C74CAE309DD4A30ABF"
+        "OwnerKey" = "8:_D63B463680700A7B5C6F2F1110F5B564"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_077A312EF78712C74CAE309DD4A30ABF"
+        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -69,12 +57,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_80C7FF67C00F990AA31E4A30E5A459AB"
-        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_81593586FAF5463BA24256EFBFA5B5CD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -93,18 +75,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B795BBF02D21DA5DF1A4966D4D6E5C8F"
-        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B795BBF02D21DA5DF1A4966D4D6E5C8F"
-        "OwnerKey" = "8:_B5B5B256F8C34B3F89FBD56D34CE91CE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_BC30D2289F47476396A4E58E5653BA8B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -117,8 +87,44 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D0A2F4B4785D4C26B0BF9388815E3B9E"
+        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D63B463680700A7B5C6F2F1110F5B564"
+        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D63B463680700A7B5C6F2F1110F5B564"
+        "OwnerKey" = "8:_B5B5B256F8C34B3F89FBD56D34CE91CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_EABD810AEF1D2CECC5C48C7B78A393F9"
         "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F1039B3CFF1F99F06959F1530EB58CC7"
+        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F1039B3CFF1F99F06959F1530EB58CC7"
+        "OwnerKey" = "8:_B5B5B256F8C34B3F89FBD56D34CE91CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_077A312EF78712C74CAE309DD4A30ABF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,37 +136,31 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EABD810AEF1D2CECC5C48C7B78A393F9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_80C7FF67C00F990AA31E4A30E5A459AB"
+        "OwnerKey" = "8:_EABD810AEF1D2CECC5C48C7B78A393F9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B795BBF02D21DA5DF1A4966D4D6E5C8F"
+        "OwnerKey" = "8:_D0A2F4B4785D4C26B0BF9388815E3B9E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0108304252F561B1EF88760CF284F137"
+        "OwnerKey" = "8:_F1039B3CFF1F99F06959F1530EB58CC7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_01A5566E6897C7B857885E38593B3161"
+        "OwnerKey" = "8:_D63B463680700A7B5C6F2F1110F5B564"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -175,7 +175,7 @@
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
-        "Compression" = "3:2"
+        "Compression" = "3:3"
         "SignOutput" = "11:FALSE"
         "CertificateFile" = "8:"
         "PrivateKeyFile" = "8:"
@@ -258,73 +258,11 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0108304252F561B1EF88760CF284F137"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_0108304252F561B1EF88760CF284F137"
-                    {
-                    "Name" = "8:Common.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Common.DLL"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_01A5566E6897C7B857885E38593B3161"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_01A5566E6897C7B857885E38593B3161"
-                    {
-                    "Name" = "8:Newtonsoft.Json.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Newtonsoft.Json.DLL"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_06396BFE81F3467C8FD7DA7743DA1F33"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:UlordMiner, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:UlordMiner, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_06396BFE81F3467C8FD7DA7743DA1F33"
@@ -349,6 +287,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_077A312EF78712C74CAE309DD4A30ABF"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_077A312EF78712C74CAE309DD4A30ABF"
+                    {
+                    "Name" = "8:Newtonsoft.Json.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Newtonsoft.Json.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_378BCD659D754737AD4AB0026B11A286"
@@ -431,37 +400,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_80C7FF67C00F990AA31E4A30E5A459AB"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_80C7FF67C00F990AA31E4A30E5A459AB"
-                    {
-                    "Name" = "8:Microsoft.Expression.Drawing.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.Expression.Drawing.DLL"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_81593586FAF5463BA24256EFBFA5B5CD"
             {
             "SourcePath" = "8:..\\Miner-WPF\\bin\\Debug\\Newtonsoft.Json.xml"
@@ -533,37 +471,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B795BBF02D21DA5DF1A4966D4D6E5C8F"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_B795BBF02D21DA5DF1A4966D4D6E5C8F"
-                    {
-                    "Name" = "8:Contract.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Contract.DLL"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC30D2289F47476396A4E58E5653BA8B"
             {
             "SourcePath" = "8:..\\Miner-WPF\\bin\\Debug\\UlordMiner.pdb"
@@ -604,6 +511,68 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D0A2F4B4785D4C26B0BF9388815E3B9E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D0A2F4B4785D4C26B0BF9388815E3B9E"
+                    {
+                    "Name" = "8:Microsoft.Expression.Drawing.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.Expression.Drawing.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D63B463680700A7B5C6F2F1110F5B564"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D63B463680700A7B5C6F2F1110F5B564"
+                    {
+                    "Name" = "8:Common.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Common.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EABD810AEF1D2CECC5C48C7B78A393F9"
             {
             "AssemblyRegister" = "3:1"
@@ -618,6 +587,37 @@
                     }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F1039B3CFF1F99F06959F1530EB58CC7"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F1039B3CFF1F99F06959F1530EB58CC7"
+                    {
+                    "Name" = "8:Contract.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Contract.DLL"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
@@ -702,23 +702,23 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:UlordMiner"
-        "ProductCode" = "8:{E099C426-13AB-449D-9A1D-2AFA89DCF547}"
-        "PackageCode" = "8:{42942E67-E861-4698-9B53-643C29F25B42}"
+        "ProductCode" = "8:{9FEF0BD9-010D-403F-A756-36E1F2D499EC}"
+        "PackageCode" = "8:{E4E92E80-0841-4CDD-BBFF-0710FE888386}"
         "UpgradeCode" = "8:{7C34CE82-52CD-48F6-973F-D792B1D4C8EE}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
-        "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.2.0"
+        "InstallAllUsers" = "11:TRUE"
+        "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:TianheCloud"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.ulord.one/"
-        "Title" = "8:Ulord挖矿客户端"
-        "Subject" = "8:"
+        "Title" = "8:Installation Database"
+        "Subject" = "8:Ulord挖矿客户端"
         "ARPCONTACT" = "8:TianheCloud Technology"
         "Keywords" = "8:Ulord"
-        "ARPCOMMENTS" = "8:Ulord的挖矿软件，能让电脑的CPU挖取ULD"
+        "ARPCOMMENTS" = "8:Ulord的挖矿软件，能让电脑的CPU挖取UT"
         "ARPURLINFOABOUT" = "8:http://www.ulord.one/"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
