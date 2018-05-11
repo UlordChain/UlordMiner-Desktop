@@ -1,11 +1,11 @@
 ﻿using Contract;
+using Miner_WPF.Commons;
+using Miner_WPF.Controls;
 using System;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Windows;
-using Miner_WPF.Commons;
-using Miner_WPF.Controls;
 
 namespace Miner_WPF
 {

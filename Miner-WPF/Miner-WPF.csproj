@@ -38,7 +38,7 @@
     <ApplicationIcon>Ulord.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Miner_WPF.App</StartupObject>
+    <StartupObject>Miner_WPF.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -99,6 +99,7 @@
     <Compile Include="Models\Converters\PerfomanceLabelContentConverter.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
