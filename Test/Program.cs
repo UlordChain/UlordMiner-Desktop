@@ -51,8 +51,8 @@ namespace Test
             Console.WriteLine("Init component...");
             Console.ReadLine();
             string configFile = "config.json";
-            string request = "Results";//"{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getMinerParam\"}";
-            string file = @"C:\Users\ChenQian\Desktop\xmrig.exe";
+            string request = "Results";
+            string file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ulordrig.exe");
             Func<Config, string> format = c => $"-a \"cryptonight\" -o \"stratum+tcp://{c.Url}\" -u \"{(string.IsNullOrEmpty(c.Id) ? c.User : $"{c.User}.{c.Id}")}\" -p \"{c.Pass}\" -t {c.Thread}  --max-cpu-usage {c.CpuUsage}"/*+" -q"*/;
             #region Load config
             Console.WriteLine("Load last config...");

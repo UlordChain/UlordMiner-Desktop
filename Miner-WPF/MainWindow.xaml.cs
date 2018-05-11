@@ -350,7 +350,7 @@ namespace Miner_WPF
                 MainWindow_LocationChanged(default(object), default(EventArgs));
                 windowConfig.Show();
             };
-            notifyIcon.开机启动ToolStripMenuItem.Click += (s, e) => Configuration.BootStart(!notifyIcon.开机启动ToolStripMenuItem.Checked, f => Configuration.ShowErrMessage($"{(f ? "设置" : "禁止")}程序开机启动失败！"));
+            notifyIcon.开机启动ToolStripMenuItem.Click += (s, e) => Configuration.BootStart(!notifyIcon.开机启动ToolStripMenuItem.Checked, f => Configuration.ShowErrMessage($"{(f ? "设置" : "禁止")}程序开机启动失败，需要管理员权限！"));
             notifyIcon.关于我们ToolStripMenuItem.Click += (s, e) => Process.Start("http://testnet-pool.ulord.one/");
             notifyIcon.退出ToolStripMenuItem.Click += (s, e) => this.Close();
             notifyIcon.notifyIcon.MouseDoubleClick += (o, e) => notifyIcon.打开ToolStripMenuItem.PerformClick();
