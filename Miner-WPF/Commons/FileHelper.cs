@@ -1,13 +1,9 @@
 ﻿using Miner_WPF.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Miner_WPF.Commons
 {
@@ -15,7 +11,7 @@ namespace Miner_WPF.Commons
     {
         public static AppInfo GetAppInfo(string url)
         {
-            using (HttpClient httpClient = new HttpClient() { Timeout = new TimeSpan(0, 0, 5) })
+            using (HttpClient httpClient = new HttpClient())
             {
                 string json = httpClient.GetStringAsync(url).Result;
                 return JsonConvert.DeserializeObject<AppInfo>(json);

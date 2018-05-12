@@ -243,30 +243,48 @@ namespace Miner_WPF
                 int showWidthOrHeight = 10;
                 if (point.Y <= mouseDirection && this.Top <= 0)
                 {
-                    while (this.Top >= -this.Height + showWidthOrHeight)
+                    if (windowConfig.Visibility == Visibility.Visible)
                     {
-                        --this.Top;
+                        this.Top = 0;
                     }
-                    windowConfig.Close();
-                    isHidden = true;
+                    else
+                    {
+                        while (this.Top >= -this.Height + showWidthOrHeight)
+                        {
+                            --this.Top;
+                        }
+                        isHidden = true;
+                    }
                 }
                 else if (point.X <= mouseDirection && this.Left <= windowDirection)
                 {
-                    while (this.Left >= -this.Width + showWidthOrHeight)
+                    if (windowConfig.Visibility == Visibility.Visible)
                     {
-                        --this.Left;
+                        this.Left = 0;
                     }
-                    windowConfig.Close();
-                    isHidden = true;
+                    else
+                    {
+                        while (this.Left >= -this.Width + showWidthOrHeight)
+                        {
+                            --this.Left;
+                        }
+                        isHidden = true;
+                    }
                 }
                 else if (point.X >= SystemParameters.WorkArea.Width - mouseDirection && this.Left >= SystemParameters.WorkArea.Width - this.Width - windowDirection)
                 {
-                    while (this.Left <= SystemParameters.WorkArea.Width - showWidthOrHeight)
+                    if (windowConfig.Visibility == Visibility.Visible)
                     {
-                        ++this.Left;
+                        this.Left = SystemParameters.WorkArea.Width - this.Width;
                     }
-                    windowConfig.Close();
-                    isHidden = true;
+                    else
+                    {
+                        while (this.Left <= SystemParameters.WorkArea.Width - showWidthOrHeight)
+                        {
+                            ++this.Left;
+                        }
+                        isHidden = true;
+                    }
                 }
             }
         }
@@ -280,7 +298,7 @@ namespace Miner_WPF
             catch
             {
             }
-        } 
+        }
         #endregion
         #region WindowConfig
         private void Mouse_Down(object sender, EventArgs e)

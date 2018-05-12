@@ -59,7 +59,7 @@ namespace Miner_WPF
             // View incoming
             btn_Incoming.Click += (s, e) => Process.Start($"http://testnet-pool.ulord.one/miners/{model.Config.User}");
             // Mining
-            btn_Mining.Click += Btn_Mining_Click; 
+            btn_Mining.Click += Btn_Mining_Click;
             #endregion
         }
         #region Set perfomance & Start mining, stop mining
@@ -102,7 +102,7 @@ namespace Miner_WPF
                     model.IsAlive = false;
                 }
             }
-        } 
+        }
         #endregion
         #region Start mining & Stop mining
         private void Btn_Mining_Click(object sender, RoutedEventArgs e)
@@ -135,7 +135,7 @@ namespace Miner_WPF
                     Configuration.ShowErrMessage("结束挖矿程序失败！");
                 }
             }
-        } 
+        }
         #endregion
         #region Format input
         private bool TryFormatConfig(Action<string> action = null)
@@ -150,7 +150,7 @@ namespace Miner_WPF
             }
             else if (!string.IsNullOrEmpty(model.Config.Id) && !Regex.IsMatch(model.Config.Id, "^[a-zA-Z0-9]{0,20}$"))
             {
-                action?.Invoke("编号只能为不超过20为字符的数字和字母！");
+                action?.Invoke("编号只能为不超过20位字符的数字和字母！");
             }
             else if (model.Config.Thread < 0)
             {
@@ -158,6 +158,8 @@ namespace Miner_WPF
             }
             else
             {
+                model.Config.Url = model.Config.Url.Trim();
+                model.Config.User = model.Config.User.Trim();
                 return true;
             }
             return false;

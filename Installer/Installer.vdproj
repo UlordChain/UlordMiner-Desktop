@@ -124,7 +124,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_077A312EF78712C74CAE309DD4A30ABF"
+        "OwnerKey" = "8:_EABD810AEF1D2CECC5C48C7B78A393F9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -137,12 +137,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EABD810AEF1D2CECC5C48C7B78A393F9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -161,6 +155,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D63B463680700A7B5C6F2F1110F5B564"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_077A312EF78712C74CAE309DD4A30ABF"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -703,7 +703,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:UlordMiner"
         "ProductCode" = "8:{9FEF0BD9-010D-403F-A756-36E1F2D499EC}"
-        "PackageCode" = "8:{E4E92E80-0841-4CDD-BBFF-0710FE888386}"
+        "PackageCode" = "8:{F1FAB068-EC54-4F94-BD16-A49E97925E0A}"
         "UpgradeCode" = "8:{7C34CE82-52CD-48F6-973F-D792B1D4C8EE}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -711,14 +711,14 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:TianheCloud"
+        "Manufacturer" = "8:Ulord Foundation Ltd"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.ulord.one/"
         "Title" = "8:Installation Database"
         "Subject" = "8:Ulord挖矿客户端"
-        "ARPCONTACT" = "8:TianheCloud Technology"
+        "ARPCONTACT" = "8:Ulord Foundation Ltd"
         "Keywords" = "8:Ulord"
-        "ARPCOMMENTS" = "8:Ulord的挖矿软件，能让电脑的CPU挖取UT"
+        "ARPCOMMENTS" = "8:Ulord挖矿客户端 是 Ulord 的挖矿软件，采用了CryptoHello共识算法。"
         "ARPURLINFOABOUT" = "8:http://www.ulord.one/"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"

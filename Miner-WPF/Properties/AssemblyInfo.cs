@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("Ulord挖矿客户端")]
 [assembly: AssemblyDescription("Ulord CPU 挖矿客户端")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("TianheCloud Technology")]
+[assembly: AssemblyCompany("Ulord Foundation Ltd")]
 [assembly: AssemblyProduct("Ulord挖矿客户端")]
-[assembly: AssemblyCopyright("© TianheCloud Technology. All rights reserved.")]
+[assembly: AssemblyCopyright("© Ulord Foundation Ltd. All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

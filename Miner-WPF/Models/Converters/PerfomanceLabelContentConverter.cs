@@ -13,6 +13,14 @@ namespace Miner_WPF.Models.Converters
             if (parameter != null)
             {
                 digits = System.Convert.ToInt32(parameter);
+                if (digits == 0)
+                {
+                    string str = Binary.GetBinaryString((double)value, 1);
+                    if (str.Length <= 4)
+                    {
+                        return str;
+                    }
+                }
             }
             return Binary.GetBinaryString((double)value,digits);
         }
