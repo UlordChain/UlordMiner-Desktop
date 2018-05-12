@@ -60,6 +60,8 @@ namespace Miner_WPF
             btn_Incoming.Click += (s, e) => Process.Start($"http://testnet-pool.ulord.one/miners/{model.Config.User}");
             // Mining
             btn_Mining.Click += Btn_Mining_Click;
+            // Help
+            btn_Help.MouseDown += (s, e) => Process.Start("http://testnet-pool.ulord.one/");
             #endregion
         }
         #region Set perfomance & Start mining, stop mining
@@ -90,16 +92,6 @@ namespace Miner_WPF
                     {
                         return;
                     }
-                }
-            }
-        }
-        public void EndMining()
-        {
-            if (model != null)
-            {
-                if (Configuration.TryTerminate())
-                {
-                    model.IsAlive = false;
                 }
             }
         }
@@ -144,9 +136,9 @@ namespace Miner_WPF
             {
                 action?.Invoke("请输入地址！");
             }
-            else if (string.IsNullOrEmpty(model.Config.User))
+            else if (string.IsNullOrEmpty(model.Config.User) || !Regex.IsMatch(model.Config.User, "^[uU][a-zA-Z0-9]{33}$"))
             {
-                action?.Invoke("请输入账户！");
+                action?.Invoke(@"账户只能为以u\U开头的34个字母和数字字符组合！");
             }
             else if (!string.IsNullOrEmpty(model.Config.Id) && !Regex.IsMatch(model.Config.Id, "^[a-zA-Z0-9]{0,20}$"))
             {

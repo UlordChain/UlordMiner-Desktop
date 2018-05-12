@@ -283,7 +283,30 @@
         <!--Header panel-->
         <StackPanel Grid.Row="0" Background="{StaticResource DarkBrush}" Orientation="Horizontal">
             <TextBlock Text="挖矿设置" FontSize="14" Foreground="{StaticResource WhiteBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
-            <TextBlock Width="259"/>
+            <TextBlock Width="250"/>
+            <TextBlock x:Name="btn_Help" Text="?" Foreground="{StaticResource WhiteBrush}" Background="{StaticResource DarkBrush}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.8">
+                <TextBlock.Resources>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Opacity" To="1" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Opacity" To="0.8" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Resources>
+            </TextBlock>
+            <TextBlock Width="5"/>
             <Canvas x:Name="btn_Close" Width="24" Height="24" Opacity="0.8">
                 <Canvas.Resources>
                     <Style TargetType="{x:Type Canvas}">
@@ -390,7 +413,7 @@
                 </TextBlock.Style>
             </TextBlock>
             <Label Grid.Row="2" Grid.Column="0" Content="编号" Style="{StaticResource ParameterIntroStyle}"/>
-            <TextBox x:Name="text_Id" Grid.Row="2" Grid.Column="1" Text="{Binding Path=Config.Id,Mode=TwoWay}" ToolTip="矿机编号，只能为数字和字母，默认为空" Style="{StaticResource ParameterValueStyle}">
+            <TextBox x:Name="text_Id" Grid.Row="2" Grid.Column="1" Text="{Binding Path=Config.Id,Mode=TwoWay}" ToolTip="矿机编号，可选" Style="{StaticResource ParameterValueStyle}">
                 <TextBox.ContextMenu >
                     <ContextMenu Visibility="Collapsed"/>
                 </TextBox.ContextMenu>

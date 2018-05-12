@@ -10,6 +10,17 @@
         AllowsTransparency="True"  Background="Transparent" Topmost="True" ShowInTaskbar="False"
         Icon="Ulord.ico">
     <Grid>
+        <Grid.ContextMenu>
+            <ContextMenu x:Name="ContextMenu">
+                <MenuItem Name="Open" Header="打开"/>
+                <Separator></Separator>
+                <MenuItem Name="AutoRun" Header="开机启动"/>
+                <Separator></Separator>
+                <MenuItem Name="About" Header="关于我们"/>
+                <Separator></Separator>
+                <MenuItem Name="Exit" Header="退出"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
         <Ellipse x:Name="ellipse" Width="60" Height="60" StrokeThickness="1" Stroke="{StaticResource WhiteBrush}" Fill="{StaticResource LinearGradientBrushCicle}">
             <Ellipse.Effect>
                 <DropShadowEffect x:Name="shadow" Color="{StaticResource White}" ShadowDepth="0" BlurRadius="10"/>

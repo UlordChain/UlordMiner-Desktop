@@ -203,11 +203,7 @@ namespace Miner_WPF.Commons
         }
         public static bool IsIdle()
         {
-            return Win32Native.GetIdleTime() >= 5 * 60 * 1000;
-        }
-        public static bool IsBusy()
-        {
-            return Win32Native.GetIdleTime() <= 30 * 1000;
+            return Win32Native.GetIdleTime() >= 2 * 60 * 1000;
         }
         public static Config GetConfig()
         {

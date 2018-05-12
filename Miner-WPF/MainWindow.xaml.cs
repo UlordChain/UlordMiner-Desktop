@@ -73,11 +73,6 @@ namespace Miner_WPF
                  MainWindow_LocationChanged(default(object), default(EventArgs));
                  windowConfig.Show();
              };
-            this.MouseRightButtonDown += (s, e) =>
-            {
-                MainWindow_LocationChanged(default(object), default(EventArgs));
-                windowConfig.Show();
-            };
             // State changed
             this.StateChanged += (s, e) =>
             {
@@ -100,6 +95,17 @@ namespace Miner_WPF
             this.MouseLeave += MainWidow_OnMouseLeave;
             this.MouseLeftButtonDown += MainWidow_OnMouseLeftButtonDown;
             this.LocationChanged += MainWindow_LocationChanged;
+            // Context menu
+            Open.Click += (s, e) =>
+              {
+                  this.WindowState = WindowState.Normal;
+                  MainWindow_LocationChanged(default(object), default(EventArgs));
+                  windowConfig.Show();
+              };
+            AutoRun.Click += (s, e) => Configuration.BootStart(!notifyIcon.开机启动ToolStripMenuItem.Checked, f => Configuration.ShowErrMessage($"{(f ? "设置" : "禁止")}程序开机启动失败，需要管理员权限！"));
+            About.Click += (s, e) => Process.Start("http://testnet-pool.ulord.one/");
+            Exit.Click += (s, e) => this.Close();
+            ContextMenu.ContextMenuOpening += (s, e) => notifyIcon.开机启动ToolStripMenuItem.Checked = Configuration.IsBootStart();
             #endregion
             #region Performance
             Task.Factory.StartNew(() =>
@@ -153,55 +159,28 @@ namespace Miner_WPF
             #endregion
             #region Automatic mining
             Task.Factory.StartNew(() =>
+            {
+                while (true)
                 {
-                    while (true)
+                    try
                     {
-                        try
+                        if (Configuration.GetAutomatic())
                         {
-                            if (Configuration.GetAutomatic())
+                            if (!Configuration.IsRun())
                             {
-                                if (!Configuration.IsRun())
+                                if (Configuration.IsIdle())
                                 {
-                                    if (Configuration.IsIdle())
-                                    {
-                                        windowConfig.StartMining();
-                                    }
-                                }
-                                else
-                                {
-                                    int count = 0;
-                                    while (true)
-                                    {
-                                        if (Configuration.IsRun() && Configuration.GetAutomatic())
-                                        {
-                                            if (count >= 5)
-                                            {
-                                                windowConfig.EndMining();
-                                                break;
-                                            }
-                                            else
-                                            {
-                                                if (Configuration.IsBusy())
-                                                {
-                                                    ++count;
-                                                }
-                                            }
-                                        }
-                                        else
-                                        {
-                                            break;
-                                        }
-                                        Thread.Sleep(automaticTimeout);
-                                    }
+                                    windowConfig.StartMining();
                                 }
                             }
                         }
-                        catch
-                        {
-                        }
-                        Thread.Sleep(automaticTimeout);
                     }
-                });
+                    catch
+                    {
+                    }
+                    Thread.Sleep(automaticTimeout);
+                }
+            });
             #endregion
             InitializeNotifyIcon();
             InitializeLocation();
