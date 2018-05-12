@@ -2,7 +2,6 @@
 # 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
 ################################################################################
 
-/.vs
 /Common/bin
 /Common/obj
 /Contract/obj
@@ -16,3 +15,4 @@
 /Ulord/bin
 /Test/obj
 /Test/bin
+/.vs/Miner/v15/sqlite3

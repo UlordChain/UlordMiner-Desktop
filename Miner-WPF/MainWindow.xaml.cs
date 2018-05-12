@@ -68,6 +68,11 @@ namespace Miner_WPF
                 Environment.Exit(0);
             };
             // Show
+            this.MouseRightButtonDown += (s, e) =>
+              {
+                  MainWindow_LocationChanged(default(object), default(EventArgs));
+                  windowConfig.Show();
+              };
             this.MouseDoubleClick += (s, e) =>
              {
                  MainWindow_LocationChanged(default(object), default(EventArgs));
@@ -95,17 +100,6 @@ namespace Miner_WPF
             this.MouseLeave += MainWidow_OnMouseLeave;
             this.MouseLeftButtonDown += MainWidow_OnMouseLeftButtonDown;
             this.LocationChanged += MainWindow_LocationChanged;
-            // Context menu
-            Open.Click += (s, e) =>
-              {
-                  this.WindowState = WindowState.Normal;
-                  MainWindow_LocationChanged(default(object), default(EventArgs));
-                  windowConfig.Show();
-              };
-            AutoRun.Click += (s, e) => Configuration.BootStart(!notifyIcon.开机启动ToolStripMenuItem.Checked, f => Configuration.ShowErrMessage($"{(f ? "设置" : "禁止")}程序开机启动失败，需要管理员权限！"));
-            About.Click += (s, e) => Process.Start("http://testnet-pool.ulord.one/");
-            Exit.Click += (s, e) => this.Close();
-            ContextMenu.ContextMenuOpening += (s, e) => notifyIcon.开机启动ToolStripMenuItem.Checked = Configuration.IsBootStart();
             #endregion
             #region Performance
             Task.Factory.StartNew(() =>
