@@ -39,7 +39,7 @@ namespace Miner_WPF.Commons
 
             action?.Invoke("正在获取最新挖矿软件信息...");
             AppInfo appInfo = FileHelper.GetAppInfo("https://testnet-pool.ulord.one/api/rig_stats");
-            if (!File.Exists(file) || FileVersionInfo.GetVersionInfo(file).ProductVersion!=appInfo.Version.Trim('\n') || FileHelper.ComputeFileMD5(file) != appInfo.MD5.ToUpper())
+            if (!File.Exists(file) || FileVersionInfo.GetVersionInfo(file).ProductVersion != appInfo.Version.Trim('\n') || FileHelper.ComputeFileMD5(file) != appInfo.MD5.ToUpper())
             {
                 action?.Invoke("正在更新挖矿软件...");
                 FileHelper.DownloadFile(appInfo.Address, file);

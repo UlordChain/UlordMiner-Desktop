@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 
 namespace Miner_WPF
@@ -20,6 +21,8 @@ namespace Miner_WPF
     {
         [DllImport("User32.dll")]
         public static extern bool GetCursorPos(out POINT pt);
+        [DllImport("User32.dll", SetLastError = true)]
+        public static extern bool BringWindowToTop(IntPtr hWnd);
         public struct POINT
         {
             public int X;
@@ -34,7 +37,8 @@ namespace Miner_WPF
         private bool isHidden = false;
 
         private WPFNotifyIcon notifyIcon = new WPFNotifyIcon();
-        private WindowConfig windowConfig = new WindowConfig();
+        private WindowConfig windowConfig = new WindowConfig() { Left = 0, Top = 0 };
+        private bool follow = true;
         private MainWindowViewModel model;
         public MainWindow()
         {
@@ -57,6 +61,7 @@ namespace Miner_WPF
                 model = new MainWindowViewModel();
                 this.DataContext = model;
                 Win32Native.SetGlobalLLMouseHook(Mouse_Down);
+                windowConfig.LocationChanged += WindowConfig_LocationChanged;
                 windowConfig.Show();
             };
             // Close
@@ -67,17 +72,9 @@ namespace Miner_WPF
                 notifyIcon.Dispose();
                 Environment.Exit(0);
             };
-            // Show
-            this.MouseRightButtonDown += (s, e) =>
-              {
-                  MainWindow_LocationChanged(default(object), default(EventArgs));
-                  windowConfig.Show();
-              };
-            this.MouseDoubleClick += (s, e) =>
-             {
-                 MainWindow_LocationChanged(default(object), default(EventArgs));
-                 windowConfig.Show();
-             };
+            // Show config window
+            this.MouseRightButtonDown += WindowConfig_Show;
+            this.MouseDoubleClick += WindowConfig_Show;
             // State changed
             this.StateChanged += (s, e) =>
             {
@@ -284,49 +281,99 @@ namespace Miner_WPF
                 }
             }
         }
+        private void WindowConfig_Show(object sender, MouseButtonEventArgs e)
+        {
+            follow = true;
+            MainWindow_LocationChanged(default(object), default(EventArgs));
+            windowConfig.Show();
+        }
+        private void WindowConfig_LocationChanged(object sender, EventArgs e)
+        {
+            bool bl = this.Left <= windowConfig.Left && windowConfig.Left <= this.Left + this.Width || windowConfig.Left <= this.Left && this.Left <= windowConfig.Left + windowConfig.Width;
+            bool bt = this.Top <= windowConfig.Top && windowConfig.Top <= this.Top + this.Height || windowConfig.Top < this.Top && this.Top <= windowConfig.Top + windowConfig.Height;
+            follow = bl && bt;
+        }
         private void MainWindow_LocationChanged(object sender, EventArgs e)
         {
-            double sh = SystemParameters.WorkArea.Height;
-            double sw = SystemParameters.WorkArea.Width;
-            double mt = this.Top;
-            double ml = this.Left;
-            double mh = this.Height;
-            double mw = this.Width;
-            double ch = windowConfig.Height;
-            double cw = windowConfig.Width;
-            if (ml + 0.5 * mw > 0.5 * sw)
+            // windows center point
+            double centerML = this.Left + this.Width * 0.5;
+            double centerMT = this.Top + this.Height * 0.5;
+            double centerCL = windowConfig.Left + windowConfig.Width * 0.5;
+            double centerCT = windowConfig.Top + windowConfig.Height * 0.5;
+            // config window follow location
+            double l = this.Left + 0.5 * this.Width - windowConfig.Width;
+            double t = this.Top + 0.5 * this.Height - windowConfig.Height;
+            double r = this.Left + 0.5 * this.Width;
+            double b = this.Top + 0.5 * this.Height;
+            // config window location range
+            double minl = 0;
+            double mint = 0;
+            double maxl = SystemParameters.WorkArea.Width - windowConfig.Width;
+            double maxt = SystemParameters.WorkArea.Height - windowConfig.Height;
+            // config window really location
+            double cl;
+            double ct;
+            if (!follow)
             {
-                // Left, Top 
-                if (mt + 0.5 * mh > 0.5 * sh)
+                WindowConfig_LocationChanged(default(object), default(EventArgs)); 
+            }
+            if (follow)
+            {
+                // calculate config window location
+                if (centerML > centerCL)
                 {
-                    windowConfig.Top = mt + 0.5 * mh - ch;
-                    windowConfig.Left = ml + 0.5 * mw - cw;
+                    // Left, Top 
+                    if (centerMT > centerCT)
+                    {
+                        cl = l;
+                        ct = t;
+                    }
+                    // Left, Bottom
+                    else
+                    {
+                        cl = l;
+                        ct = b;
+                    }
                 }
-                // Left, Bottom
                 else
                 {
-                    windowConfig.Top = mt + 0.5 * mh;
-                    windowConfig.Left = ml + 0.5 * mw - cw;
+                    // Right, Top 
+                    if (centerMT > centerCT)
+                    {
+                        cl = r;
+                        ct = t;
+                    }
+                    // Right, Bottom
+                    else
+                    {
+                        cl = r;
+                        ct = b;
+                    }
                 }
-            }
-            else
-            {
-                // Right, Top 
-                if (mt + 0.5 * mh > 0.5 * sh)
+                // limit config window location
+                if (cl < minl)
                 {
-                    windowConfig.Top = mt + 0.5 * mh - ch;
-                    windowConfig.Left = ml + 0.5 * mw;
+                    cl = r;
                 }
-                // Right, Bottom
-                else
+                if (cl > maxl)
                 {
-                    windowConfig.Top = mt + 0.5 * mh;
-                    windowConfig.Left = ml + 0.5 * mw;
+                    cl = l;
                 }
+                if (ct < mint)
+                {
+                    ct = b;
+                }
+                if (ct > maxt)
+                {
+                    ct = t;
+                }
+                windowConfig.Left = cl;
+                windowConfig.Top = ct;
             }
-            if (mt > sh - mh)
+            // limit main window top
+            if (this.Top > SystemParameters.WorkArea.Height - this.Height)
             {
-                this.Top = sh - mh;
+                this.Top = SystemParameters.WorkArea.Height - this.Height;
             }
         }
         #endregion
@@ -338,8 +385,8 @@ namespace Miner_WPF
             notifyIcon.打开ToolStripMenuItem.Click += (s, e) =>
             {
                 this.WindowState = WindowState.Normal;
-                MainWindow_LocationChanged(default(object), default(EventArgs));
-                windowConfig.Show();
+                BringWindowToTop(new WindowInteropHelper(this).Handle);
+                WindowConfig_Show(default(object), default(MouseButtonEventArgs));
             };
             notifyIcon.开机启动ToolStripMenuItem.Click += (s, e) => Configuration.BootStart(!notifyIcon.开机启动ToolStripMenuItem.Checked, f => Configuration.ShowErrMessage($"{(f ? "设置" : "禁止")}程序开机启动失败，需要管理员权限！"));
             notifyIcon.关于我们ToolStripMenuItem.Click += (s, e) => Process.Start("http://testnet-pool.ulord.one/");

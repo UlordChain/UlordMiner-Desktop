@@ -10,15 +10,11 @@ namespace Miner_WPF.Commons
     internal class NativeMethods
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern IntPtr SetWindowsHookEx(HookType hookType,
-            HookProc callback, IntPtr hMod, uint dwThreadId);
-
+        public static extern IntPtr SetWindowsHookEx(HookType hookType, HookProc callback, IntPtr hMod, uint dwThreadId);
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern bool UnhookWindowsHookEx(IntPtr hhk);
-
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern int CallNextHookEx(IntPtr hhk, int nCode,
-            IntPtr wParam, IntPtr lParam);
+        public static extern int CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
     }
 
     internal static class HookCodes
@@ -131,7 +127,7 @@ namespace Miner_WPF.Commons
         }
 
         private static event EventHandler MouseEventHandler;
-        
+
         private static IntPtr hGlobalLLMouseHook = IntPtr.Zero;
         private static HookProc globalLLMouseHookCallback = null;
 
