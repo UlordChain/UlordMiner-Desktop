@@ -11,31 +11,15 @@
     <SolidColorBrush x:Key="DarkGrayBrush" Color="#DCDCDC"/>
     <SolidColorBrush x:Key="GrayBrush" Color="#F0F0F0"/>
     <SolidColorBrush x:Key="LeadBrush" Color="#FAFAFA"/>
+    <SolidColorBrush x:Key="NormBrush" Color="#33CF4B"/>
+    <SolidColorBrush x:Key="WarnBrush" Color="#FFBD2E"/>
+    <SolidColorBrush x:Key="DangerBrush" Color="#E86A4F"/>
     <!--Color-->
     <Color x:Key="White" A="#FF" R="#FF" G="#FF" B="#FF"/>
-    <Color x:Key="Red" A="#FF" R="#FF" G="#00" B="#00"/>
-    <Color x:Key="Rouge" A="#FF" R="#C3" G="#33" B="#2D"/>
-    <Color x:Key="Reality" A="#FF" R="#DD" G="#3B" B="#39"/>
-    <Color x:Key="DarkGreen" A="#FF" R="#3B" G="#80" B="#61"/>
-    <Color x:Key="Sprouting" A="#FF" R="#5A" G="#9A" B="#77"/>
     <Color x:Key="Gray" A="#FF" R="#F0" G="#F0" B="#F0"/>
-    <!--LinearGradientBrush-->
-    <LinearGradientBrush x:Key="LinearGradientBrushDown" StartPoint="0.5,0" EndPoint="0.5,0">
-        <GradientStop Color="{StaticResource Rouge}" Offset="1"/>
-        <GradientStop Color="{StaticResource Reality}" Offset="0"/>
-    </LinearGradientBrush>
-    <LinearGradientBrush x:Key="LinearGradientBrushUp" StartPoint="0.5,0" EndPoint="0.5,0">
-        <GradientStop Color="{StaticResource DarkGreen}" Offset="1"/>
-        <GradientStop Color="{StaticResource Sprouting}" Offset="0"/>
-    </LinearGradientBrush>
-    <LinearGradientBrush x:Key="LinearGradientBrushCicle" StartPoint="0.5,0" EndPoint="0.5,0">
-        <GradientStop Color="#F9F9F9" Offset="1"/>
-        <GradientStop Color="#DDDDDD" Offset="0"/>
-    </LinearGradientBrush>
     <!--Value converter-->
     <mc:IsParamInputEnabledConverter x:Key="IsParamInputEnabledConverter"/>
     <mc:IsAutomaticEnabledConverter x:Key="IsAutomaticEnabledConverter"/>
     <mc:MiningButtonContentConverter x:Key="MiningButtonContentConverter"/>
     <mc:PerfomanceLabelContentConverter x:Key="PerfomanceLabelContentConverter"/>
-    <mc:PerformanceSignOrientationConverter x:Key="PerformanceSignOrientationConverter"/>
 </ResourceDictionary>

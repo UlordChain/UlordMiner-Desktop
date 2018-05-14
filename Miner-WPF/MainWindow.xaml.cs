@@ -43,18 +43,12 @@ namespace Miner_WPF
         public MainWindow()
         {
             InitializeComponent();
-            #region Get resource
+            #region Binding events
             int automaticTimeout = 30 * 1000;
             int performanceTimeout = 1000;
-            double a = 30 - 1, b = 30 - 1, r = ellipse.Width / 2 - 1;
-            double rate = 2 * r / 100;
-            double bottom = b + r;
-            LinearGradientBrush linearGradientBrushUp = (LinearGradientBrush)FindResource("LinearGradientBrushUp");
-            LinearGradientBrush linearGradientBrushDown = (LinearGradientBrush)FindResource("LinearGradientBrushDown");
-            Color colorWarn = (Color)FindResource("Red");
-            Color colorNorm = (Color)FindResource("White");
-            #endregion
-            #region Binding events
+            SolidColorBrush normBrush = (SolidColorBrush)FindResource("NormBrush");
+            SolidColorBrush warnBrush = (SolidColorBrush)FindResource("WarnBrush");
+            SolidColorBrush dangerBrush = (SolidColorBrush)FindResource("DangerBrush");
             // Load
             this.Loaded += (s, e) =>
             {
@@ -107,9 +101,20 @@ namespace Miner_WPF
                     {
                         bool isRun;
                         IPerformance perfmon = Configuration.GetPerfmon(out isRun);
-                        model.IsUP = perfmon.Hashrate > model.ComputeAbility;
                         model.ComputeAbility = perfmon.Hashrate;
                         windowConfig.SetPerformance(isRun, perfmon);
+                        this.Dispatcher.Invoke(()=> {
+                            if (isRun)
+                            {
+                                panel_Run.Visibility = Visibility.Visible;
+                                panel_Stop.Visibility = Visibility.Collapsed;
+                            }
+                            else
+                            {
+                                panel_Run.Visibility = Visibility.Collapsed;
+                                panel_Stop.Visibility = Visibility.Visible;
+                            }
+                        });
                     }
                     catch
                     {
@@ -121,24 +126,17 @@ namespace Miner_WPF
             #region CPU usage
             Task.Factory.StartNew(() =>
             {
-                double lastUsage = 0;
                 while (true)
                 {
                     try
                     {
                         float usage = Configuration.GetCPUUsage();
-                        double y = bottom - usage * rate;
-                        Tuple<Geometry, Geometry> geometrys = GetGeometry(a, b, r, y);
-                        LinearGradientBrush linearGradientBrush = usage > lastUsage ? linearGradientBrushUp : linearGradientBrushDown;
-                        Color color = usage >= 85 ? colorWarn : colorNorm;
-                        lastUsage = usage;
+                        double angle = usage * 3.6;
+                        SolidColorBrush solidColorBrush = usage >= 90 ? dangerBrush : usage >= 50 ? warnBrush : normBrush;
                         this.Dispatcher.Invoke(() =>
                         {
-                            path1.Data = geometrys.Item1;
-                            path2.Data = geometrys.Item2;
-                            path1.Fill = linearGradientBrush;
-                            path2.Fill = linearGradientBrush;
-                            shadow.Color = color;
+                            arc.EndAngle = angle;
+                            arc.Fill = solidColorBrush;
                         });
                     }
                     catch
@@ -315,7 +313,7 @@ namespace Miner_WPF
             double ct;
             if (!follow)
             {
-                WindowConfig_LocationChanged(default(object), default(EventArgs)); 
+                WindowConfig_LocationChanged(default(object), default(EventArgs));
             }
             if (follow)
             {
@@ -394,53 +392,6 @@ namespace Miner_WPF
             notifyIcon.notifyIcon.MouseDoubleClick += (o, e) => notifyIcon.打开ToolStripMenuItem.PerformClick();
             notifyIcon.contextMenuStrip.Opening += (s, e) => notifyIcon.开机启动ToolStripMenuItem.Checked = Configuration.IsBootStart();
             notifyIcon.notifyIcon.Visible = true;
-        }
-        #endregion
-        #region Get geometry
-        private static Tuple<Geometry, Geometry> GetGeometry(double a, double b, double r, double y)
-        {
-            Random random = new Random(DateTime.Now.Millisecond);
-
-            double sqrt = Math.Sqrt(Math.Pow(r, 2) - Math.Pow(y - b, 2));
-            double x1 = a - sqrt, x2 = a + sqrt;
-
-            double sub = (x2 - x1) / 4;
-            double minY = b - r;
-            double maxY = b + r;
-            double realMinY = y - sub;
-            double realMaxY = y + sub;
-
-            Point start = new Point(x1, y);
-            Point point3 = new Point(x2, y);
-            Point point1, point2;
-
-            Tuple<Point, Point> points1 = GetPoints(random, x1, x2, sub, minY, maxY, realMinY, realMaxY, y);
-            point1 = points1.Item1;
-            point2 = points1.Item2;
-            string data1 = $"M {start.X},{start.Y} C {point1.X},{point1.Y} {point2.X},{point2.Y} {point3.X},{point3.Y} A {r},{r} 0,0,1 {a},{b + r} A {r},{r} 0,0,1 {start.X},{start.Y} Z";
-
-            Tuple<Point, Point> points2 = GetPoints(random, x1, x2, sub, minY, maxY, realMinY, realMaxY, y);
-            point1 = points2.Item1;
-            point2 = points2.Item2;
-            string data2 = $"M {start.X},{start.Y} C {point1.X},{point1.Y} {point2.X},{point2.Y} {point3.X},{point3.Y} A {r},{r} 0,0,1 {a},{b + r} A {r},{r} 0,0,1 {start.X},{start.Y} Z";
-
-            Geometry geometry1 = Geometry.Parse(data1);
-            Geometry geometry2 = Geometry.Parse(data2);
-            return new Tuple<Geometry, Geometry>(geometry1, geometry2);
-        }
-        private static Tuple<Point, Point> GetPoints(Random random, double x1, double x2, double sub, double minY, double maxY, double realMinY, double realMaxY, double y)
-        {
-            Point point1 = new Point(x1 + sub, random.Next((int)y, (int)realMaxY));
-            if (point1.Y > maxY)
-            {
-                point1.Y = maxY;
-            }
-            Point point2 = new Point(x2 - sub, random.Next((int)realMinY, (int)y));
-            if (point2.Y < minY)
-            {
-                point2.Y = minY;
-            }
-            return new Tuple<Point, Point>(point1, point2);
         }
         #endregion
     }

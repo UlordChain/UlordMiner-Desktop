@@ -88,7 +88,6 @@
       <DependentUpon>WPFNotifyIcon.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AppInfo.cs" />
-    <Compile Include="Models\Converters\PerformanceSignOrientationConverter.cs" />
     <Compile Include="Models\ViewModels\BindableBase.cs" />
     <Compile Include="Models\Config.cs" />
     <Compile Include="Models\ViewModels\ConfigWindowViewModel.cs" />
@@ -176,6 +175,9 @@
     <None Include="ulordrig.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ulord.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -9,20 +9,7 @@ namespace Miner_WPF.Models.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            int digits = 1;
-            if (parameter != null)
-            {
-                digits = System.Convert.ToInt32(parameter);
-                if (digits == 0)
-                {
-                    string str = Binary.GetBinaryString((double)value, 1);
-                    if (str.Length <= 4)
-                    {
-                        return str;
-                    }
-                }
-            }
-            return Binary.GetBinaryString((double)value,digits);
+            return Binary.GetBinaryString((double)value,1);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
