@@ -6,6 +6,9 @@ using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Data;
+using System.Globalization;
+using System.Windows.Media;
 
 namespace Miner_WPF
 {
@@ -101,7 +104,7 @@ namespace Miner_WPF
         {
             if ("开始挖矿".Equals(btn_Mining.Content))
             {
-                if (TryFormatConfig((s) => Configuration.ShowErrMessage(s)))
+                if (TryFormatConfig())
                 {
                     if (Configuration.TryRun(model.Config))
                     {
@@ -160,7 +163,7 @@ namespace Miner_WPF
         #region Automatic
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            if (!TryFormatConfig((s) => Configuration.ShowErrMessage(s)))
+            if (!TryFormatConfig())
             {
                 check_Automatic.IsChecked = false;
             }
@@ -176,4 +179,58 @@ namespace Miner_WPF
         }
         #endregion
     }
+    #region Paramter value binding and converter
+    public enum ValidateTypes
+    {
+        Url,
+        User,
+        Id
+    }
+    public class ValidateBinding : Binding
+    {
+        public ValidateBinding() : this(ValidateTypes.Url)
+        {
+        }
+        public ValidateBinding(ValidateTypes validateTypes) : base("Text")
+        {
+            RelativeSource = RelativeSource.Self;
+            Converter = new ValidateConverter(validateTypes);
+        }
+    }
+    [ValueConversion(typeof(string), typeof(bool))]
+    public class ValidateConverter : IValueConverter
+    {
+        private ValidateTypes validateType;
+        public ValidateConverter(ValidateTypes validateType)
+        {
+            this.validateType = validateType;
+        }
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            bool validate;
+            string text = (string)value;
+            switch (validateType)
+            {
+                case ValidateTypes.Url:
+                    validate = string.IsNullOrEmpty(text);
+                    break;
+                case ValidateTypes.User:
+                    validate = string.IsNullOrEmpty(text) || !Regex.IsMatch(text, "^[uU][a-zA-Z0-9]{33}$");
+                    break;
+                case ValidateTypes.Id:
+                    validate = !string.IsNullOrEmpty(text) && !Regex.IsMatch(text, "^[a-zA-Z0-9]{0,20}$");
+                    break;
+                default:
+                    validate = false;
+                    break;
+            }
+            return validate;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    } 
+    #endregion
 }

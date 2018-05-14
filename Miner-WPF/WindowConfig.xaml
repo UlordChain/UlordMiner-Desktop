@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Miner_WPF"
         x:Class="Miner_WPF.WindowConfig"
+        xmlns:uc="clr-namespace:Miner_WPF.Controls"
         mc:Ignorable="d"
         Title="设置" Height="460" Width="360" WindowStyle="None" ResizeMode="NoResize"
         AllowsTransparency="True"  Background="Transparent" Topmost="True" ShowInTaskbar = "False" Icon="设置.png">
@@ -30,51 +31,6 @@
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="Foreground" Value="{StaticResource DarkBrush}"/>
             <Setter Property="FontSize" Value="14"/>
-        </Style>
-        <!--Parameter value style-->
-        <Style x:Key="ParameterValueStyle" TargetType="{x:Type TextBox}">
-            <Setter Property="Background" Value="{StaticResource LeadBrush}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource GrayBrush}"/>
-            <Setter Property="Foreground" Value="{StaticResource InkBrush}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Width" Value="264"/>
-            <Setter Property="Height" Value="36"/>
-            <Setter Property="Margin" Value="5,0,0,0"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="AllowDrop" Value="true"/>
-            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
-            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" CornerRadius="2">
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
-                            </Trigger>
-                            <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource DullBrush}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
-                        <Condition Property="IsSelectionActive" Value="false"/>
-                    </MultiTrigger.Conditions>
-                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-                </MultiTrigger>
-            </Style.Triggers>
         </Style>
         <!--ComboBox style-->
         <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
@@ -371,68 +327,59 @@
                 <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="矿池" Style="{StaticResource ParameterIntroStyle}"/>
-            <TextBox x:Name="text_Url" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Config.Url,Mode=TwoWay}" ToolTip="矿池地址" Style="{DynamicResource ParameterValueStyle}" >
-                <TextBox.ContextMenu >
-                    <ContextMenu Visibility="Collapsed"/>
-                </TextBox.ContextMenu>
-            </TextBox>
-            <TextBlock Grid.Row="0" Grid.Column="1" IsHitTestVisible="False" Text="请输入矿池地址" Foreground="{StaticResource DarkGrayBrush}" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0">
-                <TextBlock.Style>
-                    <Style TargetType="{x:Type TextBlock}">
-                        <Setter Property="Visibility" Value="Collapsed"/>
+            <uc:NoticeTextBox x:Name="text_Url" Grid.Row="0" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
+                              Text="{Binding Path=Config.Url,Mode=TwoWay}"
+                              BText="请输入矿池地址"
+                              UText="矿池地址无效">
+                <uc:NoticeTextBox.Style>
+                    <Style TargetType="uc:NoticeTextBox">
+                        <Setter Property="UVisibility" Value="Collapsed"/>
+                        <Setter Property="TBorderBrush" Value="{StaticResource GrayBrush}"/>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Text, ElementName=text_Url}" Value="">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding Text, ElementName=text_Url}" Value="{x:Null}">
-                                <Setter Property="Visibility" Value="Visible"/>
+                            <DataTrigger Binding="{local:ValidateBinding Url}" Value="True">
+                                <Setter Property="UVisibility" Value="Visible"/>
+                                <Setter Property="TBorderBrush" Value="{StaticResource DangerBrush}"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </TextBlock.Style>
-            </TextBlock>
+                </uc:NoticeTextBox.Style>
+            </uc:NoticeTextBox>
             <Label Grid.Row="1" Grid.Column="0" Content="地址" Style="{StaticResource ParameterIntroStyle}"/>
-            <TextBox x:Name="text_User" Grid.Row="1" Grid.Column="1" Text="{Binding Path=Config.User,Mode=TwoWay}" ToolTip="钱包地址" Style="{StaticResource ParameterValueStyle}">
-                <TextBox.ContextMenu >
-                    <ContextMenu Visibility="Collapsed"/>
-                </TextBox.ContextMenu>
-            </TextBox>
-            <TextBlock  Grid.Row="1" Grid.Column="1" IsHitTestVisible="False" Text="请输入钱包地址" Foreground="{StaticResource DarkGrayBrush}" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0">
-                <TextBlock.Style>
-                    <Style TargetType="{x:Type TextBlock}">
-                        <Setter Property="Visibility" Value="Collapsed"/>
+            <uc:NoticeTextBox x:Name="text_User" Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
+                              Text="{Binding Path=Config.User,Mode=TwoWay}"
+                              BText="请输入钱包地址"
+                              UText="钱包地址无效">
+                <uc:NoticeTextBox.Style>
+                    <Style TargetType="uc:NoticeTextBox">
+                        <Setter Property="UVisibility" Value="Collapsed"/>
+                        <Setter Property="TBorderBrush" Value="{StaticResource GrayBrush}"/>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Text, ElementName=text_User}" Value="">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding Text, ElementName=text_User}" Value="{x:Null}">
-                                <Setter Property="Visibility" Value="Visible"/>
+                            <DataTrigger Binding="{local:ValidateBinding User}" Value="True">
+                                <Setter Property="UVisibility" Value="Visible"/>
+                                <Setter Property="TBorderBrush" Value="{StaticResource DangerBrush}"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </TextBlock.Style>
-            </TextBlock>
+                </uc:NoticeTextBox.Style>
+            </uc:NoticeTextBox>
             <Label Grid.Row="2" Grid.Column="0" Content="编号" Style="{StaticResource ParameterIntroStyle}"/>
-            <TextBox x:Name="text_Id" Grid.Row="2" Grid.Column="1" Text="{Binding Path=Config.Id,Mode=TwoWay}" ToolTip="矿机编号，可选" Style="{StaticResource ParameterValueStyle}">
-                <TextBox.ContextMenu >
-                    <ContextMenu Visibility="Collapsed"/>
-                </TextBox.ContextMenu>
-            </TextBox>
-            <TextBlock Grid.Row="2" Grid.Column="1" IsHitTestVisible="False" Text="请输入编号，可选" Foreground="{StaticResource DarkGrayBrush}" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0">
-                <TextBlock.Style>
-                    <Style TargetType="{x:Type TextBlock}">
-                        <Setter Property="Visibility" Value="Collapsed"/>
+            <uc:NoticeTextBox x:Name="text_Id" Grid.Row="2" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
+                              Text="{Binding Path=Config.Id,Mode=TwoWay}"
+                              BText="编号为字母与数字组合"
+                              UText="编号为字母与数字组合">
+                <uc:NoticeTextBox.Style>
+                    <Style TargetType="uc:NoticeTextBox">
+                        <Setter Property="UVisibility" Value="Collapsed"/>
+                        <Setter Property="TBorderBrush" Value="{StaticResource GrayBrush}"/>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Text, ElementName=text_Id}" Value="">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding Text, ElementName=text_Id}" Value="{x:Null}">
-                                <Setter Property="Visibility" Value="Visible"/>
+                            <DataTrigger Binding="{local:ValidateBinding Id}" Value="True">
+                                <Setter Property="UVisibility" Value="Visible"/>
+                                <Setter Property="TBorderBrush" Value="{StaticResource DangerBrush}"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </TextBlock.Style>
-            </TextBlock>
+                </uc:NoticeTextBox.Style>
+            </uc:NoticeTextBox>
             <Label Grid.Row="3" Grid.Column="0" Content="线程" Style="{StaticResource ParameterIntroStyle}"/>
             <ComboBox x:Name="comboBox_Thread" SelectedValue="{Binding Path=Config.Thread,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" ToolTip="线程数，默认为CPU核数的一半" Width="264" Height="36" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" Margin="5,0,0,0"/>
         </Grid>

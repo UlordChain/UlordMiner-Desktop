@@ -78,6 +78,9 @@
     <Compile Include="Commons\Configuration.cs" />
     <Compile Include="Commons\FileHelper.cs" />
     <Compile Include="Commons\Win32Native.cs" />
+    <Compile Include="Controls\NoticeTextBox.xaml.cs">
+      <DependentUpon>NoticeTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\NotifyWindow.xaml.cs">
       <DependentUpon>NotifyWindow.xaml</DependentUpon>
     </Compile>
@@ -107,6 +110,10 @@
     <Compile Include="WindowConfig.xaml.cs">
       <DependentUpon>WindowConfig.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\NoticeTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\NotifyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
