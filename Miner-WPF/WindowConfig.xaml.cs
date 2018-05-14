@@ -60,7 +60,7 @@ namespace Miner_WPF
                 }
             };
             // View incoming
-            btn_Incoming.Click += (s, e) => Process.Start($"http://testnet-pool.ulord.one/miners/{model.Config.User}");
+            btn_Incoming.Click += (s, e) => Process.Start($"http://{(string.IsNullOrEmpty(model.Config.Url) ? "testnet-pool.ulord.one" : model.Config.Url.Split(':')[0])}/miners/{model.Config.User}");
             // Mining
             btn_Mining.Click += Btn_Mining_Click;
             // Help
@@ -231,6 +231,6 @@ namespace Miner_WPF
         {
             throw new NotImplementedException();
         }
-    } 
+    }
     #endregion
 }
