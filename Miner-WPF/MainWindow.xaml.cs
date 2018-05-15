@@ -215,7 +215,7 @@ namespace Miner_WPF
 
         private void MainWidow_OnMouseLeave(object sender, MouseEventArgs e)
         {
-            if (!isHidden)
+            if (!isHidden && !PointInWindow(this,Win32Native.GetCursorPos()))
             {
                 // Distance from the form to the boundary
                 int windowDirection = 0;
@@ -298,9 +298,9 @@ namespace Miner_WPF
                 }
             }
         }
-        private bool PointInWindow(double x, double y, Window window)
+        private bool PointInWindow(Window window, Tuple<int, int> tuple)
         {
-            if (window.Left <= x && x <= window.Left + window.Width && window.Top <= y && y <= window.Top + window.Height)
+            if (window.Left <= tuple.Item1 && tuple.Item1 <= window.Left + window.Width && window.Top <= tuple.Item2 && tuple.Item2 <= window.Top + window.Height)
             {
                 return true;
             }

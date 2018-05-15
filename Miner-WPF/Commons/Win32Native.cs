@@ -84,7 +84,7 @@ namespace Miner_WPF.Commons
             uint idleTime = (uint)Environment.TickCount - LastUserAction.dwTime;
             return idleTime;
         }
-        public Tuple<int, int> GetCursorPos()
+        public static Tuple<int, int> GetCursorPos()
         {
             POINT point;
             GetCursorPos(out point);
