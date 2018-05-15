@@ -4,7 +4,6 @@ using Miner_WPF.Controls;
 using Miner_WPF.Models.ViewModels;
 using System;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,20 +18,7 @@ namespace Miner_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        [DllImport("User32.dll")]
-        public static extern bool GetCursorPos(out POINT pt);
-        [DllImport("User32.dll", SetLastError = true)]
-        public static extern bool BringWindowToTop(IntPtr hWnd);
-        public struct POINT
-        {
-            public int X;
-            public int Y;
-            public POINT(int x, int y)
-            {
-                this.X = x;
-                this.Y = y;
-            }
-        }
+
         private bool isHidden = false;
 
         private WPFNotifyIcon notifyIcon = new WPFNotifyIcon();
@@ -334,7 +320,7 @@ namespace Miner_WPF
         }
         private void WindowConfig_Show(object sender, MouseButtonEventArgs e)
         {
-            if (windowConfig.Visibility!= Visibility.Visible)
+            if (windowConfig.Visibility != Visibility.Visible)
             {
                 follow = true;
                 bool change = false;
@@ -357,7 +343,7 @@ namespace Miner_WPF
                 {
                     MainWindow_LocationChanged(default(object), default(EventArgs));
                 }
-                windowConfig.Show(); 
+                windowConfig.Show();
             }
         }
         private void WindowConfig_LocationChanged(object sender, EventArgs e)
@@ -458,7 +444,7 @@ namespace Miner_WPF
             notifyIcon.打开ToolStripMenuItem.Click += (s, e) =>
             {
                 this.WindowState = WindowState.Normal;
-                BringWindowToTop(new WindowInteropHelper(this).Handle);
+                Win32Native.BringWindowToTop(new WindowInteropHelper(this).Handle);
                 WindowConfig_Show(default(object), default(MouseButtonEventArgs));
             };
             notifyIcon.开机启动ToolStripMenuItem.Click += (s, e) => Configuration.BootStart(!notifyIcon.开机启动ToolStripMenuItem.Checked, f => Configuration.ShowErrMessage($"{(f ? "设置" : "禁止")}程序开机启动失败，需要管理员权限！"));

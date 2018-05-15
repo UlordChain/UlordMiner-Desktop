@@ -17,49 +17,12 @@ namespace Miner_WPF.Commons
         public static extern int CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
     }
 
-    internal static class HookCodes
-    {
-        public const int HC_ACTION = 0;
-        public const int HC_GETNEXT = 1;
-        public const int HC_SKIP = 2;
-        public const int HC_NOREMOVE = 3;
-        public const int HC_NOREM = HC_NOREMOVE;
-        public const int HC_SYSMODALON = 4;
-        public const int HC_SYSMODALOFF = 5;
-    }
-
     internal enum HookType
     {
         WH_KEYBOARD = 2,
         WH_MOUSE = 7,
         WH_KEYBOARD_LL = 13,
         WH_MOUSE_LL = 14
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    internal class POINT
-    {
-        public int x;
-        public int y;
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    internal struct MOUSEHOOKSTRUCT
-    {
-        public POINT pt;        // The x and y coordinates in screen coordinates
-        public int hwnd;        // Handle to the window that'll receive the mouse message
-        public int wHitTestCode;
-        public int dwExtraInfo;
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    internal struct MSLLHOOKSTRUCT
-    {
-        public POINT pt;        // The x and y coordinates in screen coordinates. 
-        public int mouseData;   // The mouse wheel and button info.
-        public int flags;
-        public int time;        // Specifies the time stamp for this message. 
-        public IntPtr dwExtraInfo;
     }
 
     internal enum MouseMessage
@@ -90,32 +53,28 @@ namespace Miner_WPF.Commons
         WM_NCMBUTTONDBLCLK = 0x00A9
     }
 
-    [StructLayout(LayoutKind.Sequential)]
-    internal struct KBDLLHOOKSTRUCT
-    {
-        public int vkCode;      // Specifies a virtual-key code
-        public int scanCode;    // Specifies a hardware scan code for the key
-        public int flags;
-        public int time;        // Specifies the time stamp for this message
-        public int dwExtraInfo;
-    }
-
-    internal enum KeyboardMessage
-    {
-        WM_KEYDOWN = 0x0100,
-        WM_KEYUP = 0x0101,
-        WM_SYSKEYDOWN = 0x0104,
-        WM_SYSKEYUP = 0x0105
-    }
-
     public class Win32Native
     {
         [DllImport("User32.dll")]
         private static extern bool GetLastInputInfo(ref LASTINPUTINFO Dummy);
+        [DllImport("User32.dll")]
+        private static extern bool GetCursorPos(out POINT pt);
+        [DllImport("User32.dll", SetLastError = true)]
+        public static extern bool BringWindowToTop(IntPtr hWnd);
         internal struct LASTINPUTINFO
         {
             public uint cbSize;
             public uint dwTime;
+        }
+        internal struct POINT
+        {
+            public int X;
+            public int Y;
+            public POINT(int x, int y)
+            {
+                this.X = x;
+                this.Y = y;
+            }
         }
         public static uint GetIdleTime()
         {
@@ -125,7 +84,12 @@ namespace Miner_WPF.Commons
             uint idleTime = (uint)Environment.TickCount - LastUserAction.dwTime;
             return idleTime;
         }
-
+        public Tuple<int, int> GetCursorPos()
+        {
+            POINT point;
+            GetCursorPos(out point);
+            return new Tuple<int, int>(point.X, point.Y);
+        }
         private static event EventHandler MouseEventHandler;
 
         private static IntPtr hGlobalLLMouseHook = IntPtr.Zero;
@@ -152,10 +116,8 @@ namespace Miner_WPF.Commons
         {
             if (hGlobalLLMouseHook != IntPtr.Zero)
             {
-                // Unhook the low-level mouse hook
                 if (!NativeMethods.UnhookWindowsHookEx(hGlobalLLMouseHook))
                     return false;
-
                 hGlobalLLMouseHook = IntPtr.Zero;
             }
             return true;
@@ -165,19 +127,12 @@ namespace Miner_WPF.Commons
         {
             if (nCode >= 0)
             {
-                // Marshal the MSLLHOOKSTRUCT data from the callback lParam
-                MSLLHOOKSTRUCT mouseLLHookStruct = (MSLLHOOKSTRUCT)
-                    Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
-
-                // Get the mouse WM from the wParam parameter
                 MouseMessage wmMouse = (MouseMessage)wParam;
-
                 if (wmMouse == MouseMessage.WM_LBUTTONDOWN || wmMouse == MouseMessage.WM_RBUTTONDOWN)
                 {
-                    MouseEventHandler?.Invoke(new Tuple<int, int>(mouseLLHookStruct.pt.x, mouseLLHookStruct.pt.y), default(EventArgs));
+                    MouseEventHandler?.Invoke(default(object), default(EventArgs));
                 }
             }
-            // Pass the hook information to the next hook procedure in chain
             return NativeMethods.CallNextHookEx(hGlobalLLMouseHook, nCode, wParam, lParam);
         }
 
