@@ -82,8 +82,8 @@ namespace Miner_WPF
                 }
             };
             // Hidden window
-            this.MouseEnter += MainWindow_OnMouseEnter;
-            this.MouseLeave += MainWidow_OnMouseLeave;
+            rec.MouseEnter += MainWindow_OnMouseEnter;
+            rec.MouseLeave += MainWidow_OnMouseLeave;
             this.LocationChanged += MainWindow_LocationChanged;
             #endregion
             #region Performance
@@ -215,7 +215,7 @@ namespace Miner_WPF
 
         private void MainWidow_OnMouseLeave(object sender, MouseEventArgs e)
         {
-            if (!isHidden && !PointInWindow(this,Win32Native.GetCursorPos()))
+            if (!isHidden)
             {
                 // Distance from the form to the boundary
                 int windowDirection = 0;

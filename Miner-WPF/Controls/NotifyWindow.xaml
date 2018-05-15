@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Miner_WPF.Controls"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
         mc:Ignorable="d"
-        Title="NotifyWindow" Height="60" Width="200" WindowStyle="None" ResizeMode="NoResize"
+        Title="正在加载" Height="60" Width="200" WindowStyle="None" ResizeMode="NoResize"
         AllowsTransparency="True" Background="Transparent" Topmost="True" ShowInTaskbar="False">
     <Window.Resources>
         <Storyboard x:Key="load" RepeatBehavior="Forever" >
