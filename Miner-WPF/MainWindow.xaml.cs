@@ -33,7 +33,6 @@ namespace Miner_WPF
                 this.Y = y;
             }
         }
-        POINT point;
         private bool isHidden = false;
 
         private WPFNotifyIcon notifyIcon = new WPFNotifyIcon();
@@ -66,6 +65,17 @@ namespace Miner_WPF
                 notifyIcon.Dispose();
                 Environment.Exit(0);
             };
+            // Drag
+            this.MouseLeftButtonDown += (s, e) =>
+            {
+                try
+                {
+                    this.DragMove();
+                }
+                catch
+                {
+                }
+            };
             // Show config window
             this.MouseRightButtonDown += WindowConfig_Show;
             this.MouseDoubleClick += WindowConfig_Show;
@@ -86,10 +96,8 @@ namespace Miner_WPF
                 }
             };
             // Hidden window
-            GetCursorPos(out point);
-            this.MouseMove += MainWindow_OnMouseMove;
+            this.MouseEnter += MainWindow_OnMouseEnter;
             this.MouseLeave += MainWidow_OnMouseLeave;
-            this.MouseLeftButtonDown += MainWidow_OnMouseLeftButtonDown;
             this.LocationChanged += MainWindow_LocationChanged;
             #endregion
             #region Performance
@@ -103,7 +111,8 @@ namespace Miner_WPF
                         IPerformance perfmon = Configuration.GetPerfmon(out isRun);
                         model.ComputeAbility = perfmon.Hashrate;
                         windowConfig.SetPerformance(isRun, perfmon);
-                        this.Dispatcher.Invoke(()=> {
+                        this.Dispatcher.Invoke(() =>
+                        {
                             if (isRun)
                             {
                                 panel_Run.Visibility = Visibility.Visible;
@@ -180,92 +189,136 @@ namespace Miner_WPF
             this.Top = SystemParameters.WorkArea.Height - this.Height;
             this.Left = SystemParameters.WorkArea.Width - this.Width;
         }
-        private void MainWindow_OnMouseMove(object sender, MouseEventArgs e)
+        private void MainWindow_OnMouseEnter(object sender, MouseEventArgs e)
         {
             if (isHidden)
             {
-                while (this.Top < 0)
+                Task.Factory.StartNew(() =>
                 {
-                    ++this.Top;
-                }
-                while (this.Left < 0)
-                {
-                    ++this.Left;
-                }
-                while (this.Left > SystemParameters.WorkArea.Width - this.Width)
-                {
-                    --this.Left;
-                }
-                isHidden = false;
+                    Stopwatch stopwatch = new Stopwatch();
+                    stopwatch.Start();
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        if (this.Top < 0)
+                        {
+                            while (++this.Top < 0)
+                            {
+                            }
+                            isHidden = false;
+                        }
+                        if (this.Left < 0)
+                        {
+                            while (++this.Left < 0)
+                            {
+                            }
+                            isHidden = false;
+                        }
+                        if (this.Left > SystemParameters.WorkArea.Width - this.Width)
+                        {
+                            while (--this.Left > SystemParameters.WorkArea.Width - this.Width)
+                            {
+                            }
+                            isHidden = false;
+                        }
+                    });
+                    stopwatch.Stop();
+                    Console.WriteLine($"Show: {stopwatch.Elapsed}");
+                });
             }
         }
+
         private void MainWidow_OnMouseLeave(object sender, MouseEventArgs e)
         {
             if (!isHidden)
             {
-                // Distance from mouse to border
-                int mouseDirection = 60;
                 // Distance from the form to the boundary
                 int windowDirection = 0;
                 // Width or height displayed after the form is hidden
                 int showWidthOrHeight = 10;
-                if (point.Y <= mouseDirection && this.Top <= 0)
+                if (this.Top <= 0)
                 {
-                    if (windowConfig.Visibility == Visibility.Visible)
+                    Task.Factory.StartNew(() =>
                     {
-                        this.Top = 0;
-                    }
-                    else
-                    {
-                        while (this.Top >= -this.Height + showWidthOrHeight)
+                        Stopwatch stopwatch = new Stopwatch();
+                        stopwatch.Start();
+                        this.Dispatcher.Invoke(() =>
                         {
-                            --this.Top;
-                        }
-                        isHidden = true;
-                    }
+                            if (windowConfig.Visibility == Visibility.Visible)
+                            {
+                                this.Top = 0;
+                            }
+                            else
+                            {
+                                while (this.Top >= -this.Height + showWidthOrHeight)
+                                {
+                                    --this.Top;
+                                }
+                                isHidden = true;
+                            }
+                        });
+                        stopwatch.Stop();
+                        Console.WriteLine($"Top: {stopwatch.Elapsed}");
+                    });
                 }
-                else if (point.X <= mouseDirection && this.Left <= windowDirection)
+                else if (this.Left <= windowDirection)
                 {
-                    if (windowConfig.Visibility == Visibility.Visible)
+                    Task.Factory.StartNew(() =>
                     {
-                        this.Left = 0;
-                    }
-                    else
-                    {
-                        while (this.Left >= -this.Width + showWidthOrHeight)
+                        Stopwatch stopwatch = new Stopwatch();
+                        stopwatch.Start();
+                        this.Dispatcher.Invoke(() =>
                         {
-                            --this.Left;
-                        }
-                        isHidden = true;
-                    }
+                            if (windowConfig.Visibility == Visibility.Visible)
+                            {
+                                this.Left = 0;
+                            }
+                            else
+                            {
+                                while (this.Left >= -this.Width + showWidthOrHeight)
+                                {
+                                    --this.Left;
+                                }
+                                isHidden = true;
+                            }
+                        });
+                        stopwatch.Stop();
+                        Console.WriteLine($"Left: {stopwatch.Elapsed}");
+                    });
                 }
-                else if (point.X >= SystemParameters.WorkArea.Width - mouseDirection && this.Left >= SystemParameters.WorkArea.Width - this.Width - windowDirection)
+                else if (this.Left >= SystemParameters.WorkArea.Width - this.Width - windowDirection)
                 {
-                    if (windowConfig.Visibility == Visibility.Visible)
+                    Task.Factory.StartNew(() =>
                     {
-                        this.Left = SystemParameters.WorkArea.Width - this.Width;
-                    }
-                    else
-                    {
-                        while (this.Left <= SystemParameters.WorkArea.Width - showWidthOrHeight)
+                        Stopwatch stopwatch = new Stopwatch();
+                        stopwatch.Start();
+                        this.Dispatcher.Invoke(() =>
                         {
-                            ++this.Left;
-                        }
-                        isHidden = true;
-                    }
+                            if (windowConfig.Visibility == Visibility.Visible)
+                            {
+                                this.Left = SystemParameters.WorkArea.Width - this.Width;
+                            }
+                            else
+                            {
+                                while (this.Left <= SystemParameters.WorkArea.Width - showWidthOrHeight)
+                                {
+                                    ++this.Left;
+                                }
+                                isHidden = true;
+                            }
+                        });
+                        stopwatch.Stop();
+                        Console.WriteLine($"Right: {stopwatch.Elapsed}");
+                    });
                 }
             }
         }
-        private void MainWidow_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private bool PointInWindow(double x, double y, Window window)
         {
-            try
+            if (window.Left <= x && x <= window.Left + window.Width && window.Top <= y && y <= window.Top + window.Height)
             {
-                this.DragMove();
-                GetCursorPos(out point);
+                return true;
             }
-            catch
-            {
-            }
+            return false;
         }
         #endregion
         #region WindowConfig
@@ -281,9 +334,31 @@ namespace Miner_WPF
         }
         private void WindowConfig_Show(object sender, MouseButtonEventArgs e)
         {
-            follow = true;
-            MainWindow_LocationChanged(default(object), default(EventArgs));
-            windowConfig.Show();
+            if (windowConfig.Visibility!= Visibility.Visible)
+            {
+                follow = true;
+                bool change = false;
+                if (this.Top < 0)
+                {
+                    this.Top = 0;
+                    change = true;
+                }
+                if (this.Left < 0)
+                {
+                    this.Left = 0;
+                    change = true;
+                }
+                if (this.Left > SystemParameters.WorkArea.Width - this.Width)
+                {
+                    this.Left = SystemParameters.WorkArea.Width - this.Width;
+                    change = true;
+                }
+                if (!change)
+                {
+                    MainWindow_LocationChanged(default(object), default(EventArgs));
+                }
+                windowConfig.Show(); 
+            }
         }
         private void WindowConfig_LocationChanged(object sender, EventArgs e)
         {
