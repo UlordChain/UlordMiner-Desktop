@@ -15,11 +15,12 @@
                 <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="5"/>
             </Ellipse.Effect>
         </Ellipse>
-        <ed:Arc x:Name="arc" Width="65" Height="65" ArcThickness="0.1" ArcThicknessUnit="Percent" StartAngle="0" EndAngle="360" Stretch="None" Fill="{StaticResource DangerBrush}"/>
-        <StackPanel x:Name="panel_Run" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Content="{Binding Path=ComputeAbility,Converter={StaticResource PerfomanceLabelContentConverter}}" Padding="0"/>
-            <Label Content="H/s" FontSize="9" Padding="0" VerticalContentAlignment="Bottom"/>
+        <Rectangle x:Name="rec" Width="48" Height="50" Fill="White" Margin="0,0,1,0"/>
+        <ed:Arc x:Name="arc" Width="65" Height="65" ArcThickness="0.1" ArcThicknessUnit="Percent" StartAngle="0" EndAngle="360" Stretch="None" Fill="{StaticResource DangerBrush}" IsHitTestVisible="False"/>
+        <StackPanel x:Name="panel_Run" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" IsHitTestVisible="False">
+            <Label Content="{Binding Path=ComputeAbility,Converter={StaticResource PerfomanceLabelContentConverter}}" Padding="0" IsHitTestVisible="False"/>
+            <Label Content="H/s" FontSize="9" Padding="0" VerticalContentAlignment="Bottom" IsHitTestVisible="False"/>
         </StackPanel>
-        <Image x:Name="panel_Stop" Width="45" Height="45" Source="Ulord.png"/>
+        <Image x:Name="panel_Stop" Width="45" Height="45" Source="Ulord.png" IsHitTestVisible="False"/>
     </Grid>
 </Window>

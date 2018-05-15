@@ -1,0 +1,113 @@
+﻿<Window x:Class="Miner_WPF.Controls.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Miner_WPF.Controls"
+        mc:Ignorable="d"
+        Title="帮助" Height="460" Width="360" WindowStyle="None" ResizeMode="NoResize"
+        AllowsTransparency="True"  Background="Transparent" Topmost="True" ShowInTaskbar = "False" Icon="..\设置.png">
+    <Window.Resources>
+        <!--Name style-->
+        <Style x:Key="NameStyle" TargetType="{x:Type Label}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="Foreground" Value="{StaticResource DarkBrush}"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <!--Discription style-->
+        <Style x:Key="DiscrStyle" TargetType="{x:Type Label}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="Foreground" Value="{StaticResource InkBrush}"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="{StaticResource WhiteBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="{StaticResource DarkBrush}" Orientation="Horizontal">
+            <TextBlock Text="帮助" FontSize="14" Foreground="{StaticResource WhiteBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="304" Padding="10,0,0,0"/>
+            <Canvas x:Name="btn_Close" Width="24" Height="24" Opacity="0.8" Margin="26,0,0,0">
+                <Canvas.Resources>
+                    <Style TargetType="{x:Type Canvas}">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Opacity" To="1" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Opacity" To="0.8" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Canvas.Resources>
+                <Canvas.Background>
+                    <StaticResource ResourceKey="DarkBrush"/>
+                </Canvas.Background>
+                <Line X1="5" Y1="5" X2="19" Y2="19" Stroke="{StaticResource WhiteBrush}" StrokeThickness="2"/>
+                <Line X1="19" Y1="5" X2="5" Y2="19" Stroke="{StaticResource WhiteBrush}" StrokeThickness="2"/>
+            </Canvas>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel>
+                <Label Content="算力:" Style="{StaticResource NameStyle}"/>
+                <Label Content="挖矿工具在挖矿设备上运行的计算效率。" Style="{StaticResource DiscrStyle}"/>
+                <Label Content="接收:" Style="{StaticResource NameStyle}"/>
+                <Label Content="矿池分发计算任务数目，用share表示。" Style="{StaticResource DiscrStyle}"/>
+                <Label Content="拒绝:" Style="{StaticResource NameStyle}"/>
+                <Label Content="矿机提交到矿池无效的share数目，受网络通信影响较大。" Style="{StaticResource DiscrStyle}"/>
+                <Label Content="矿池:" Style="{StaticResource NameStyle}"/>
+                <Label Style="{StaticResource DiscrStyle}">
+                    <TextBlock TextWrapping="Wrap">
+                        矿池是Ulord、比特币等P2P密码学虚拟货币开采所必须的基础设施，其目标是稳定矿工的收益。矿工通过贡献自己的算力，按比例来获得收益，而矿工贡献的方式是通过提交share。矿池地址设置如u2pool.ulord.one:7100。
+                    </TextBlock>
+                </Label>
+                <Label Content="地址:" Style="{StaticResource NameStyle}"/>
+                <Label Style="{StaticResource DiscrStyle}">
+                    <TextBlock TextWrapping="Wrap">
+                        挖矿所得收益地址，可通过Ulord官网下载的全节点钱包、轻钱包获得。
+                    </TextBlock>
+                </Label>
+                <Label Content="编号:" Style="{StaticResource NameStyle}"/>
+                <Label Style="{StaticResource DiscrStyle}">
+                    <TextBlock TextWrapping="Wrap">
+                        矿机编号限定20个数字或字母，当多台机器用同一个钱包地址进行挖矿的时在矿池Web端可通过编号区分。
+                    </TextBlock>
+                </Label>
+                <Label Content="线程:" Style="{StaticResource NameStyle}"/>
+                <Label Style="{StaticResource DiscrStyle}">
+                    <TextBlock TextWrapping="Wrap">
+                        智能检测您当前机器的cpu线程数,根据自己使用情况选择合适的线程数即可。
+                    </TextBlock>
+                </Label>
+                <Label Content="自动:" Style="{StaticResource NameStyle}"/>
+                <Label Content="如果2分钟内未对电脑进行操作将自动开始挖矿。" Style="{StaticResource DiscrStyle}"/>
+                <Label Content="查看收益:" Style="{StaticResource NameStyle}"/>
+                <Label Style="{StaticResource DiscrStyle}">
+                    <TextBlock TextWrapping="Wrap">
+                        正常挖矿5-10分钟以后，点击此按钮会跳转至矿工在矿池算力详细页面。
+                    </TextBlock>
+                </Label>
+                <Label Content="开始挖矿:" Style="{StaticResource NameStyle}"/>
+                <Label Content="设置参数完成后，点击此按钮即可开始挖矿。" Style="{StaticResource DiscrStyle}"/>
+            </StackPanel>
+        </ScrollViewer>
+        <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+           <Hyperlink NavigateUri="https://ulord.one" Click="Hyperlink_Click">© Ulord Foundation Ltd. All rights reserved.</Hyperlink>
+        </TextBlock>
+    </Grid>
+</Window>

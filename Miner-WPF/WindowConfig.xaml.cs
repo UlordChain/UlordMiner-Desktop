@@ -1,14 +1,14 @@
 ﻿using Contract;
 using Miner_WPF.Commons;
+using Miner_WPF.Controls;
 using Miner_WPF.Models;
 using Miner_WPF.Models.ViewModels;
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Data;
-using System.Globalization;
-using System.Windows.Media;
 
 namespace Miner_WPF
 {
@@ -64,7 +64,15 @@ namespace Miner_WPF
             // Mining
             btn_Mining.Click += Btn_Mining_Click;
             // Help
-            btn_Help.MouseDown += (s, e) => Process.Start("http://testnet-pool.ulord.one/");
+            btn_Help.MouseDown += (s, e) =>
+            {
+                this.Hide();
+                HelpWindow helpWindow = new HelpWindow(this.Left, this.Top);
+                helpWindow.ShowDialog();
+                this.Left = helpWindow.Left;
+                this.Top = helpWindow.Top;
+                this.Show();
+            };
             #endregion
         }
         #region Set perfomance & Start mining, stop mining

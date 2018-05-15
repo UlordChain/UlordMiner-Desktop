@@ -238,9 +238,8 @@
         </Grid.RowDefinitions>
         <!--Header panel-->
         <StackPanel Grid.Row="0" Background="{StaticResource DarkBrush}" Orientation="Horizontal">
-            <TextBlock Text="挖矿设置" FontSize="14" Foreground="{StaticResource WhiteBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
-            <TextBlock Width="250"/>
-            <TextBlock x:Name="btn_Help" Text="?" Foreground="{StaticResource WhiteBrush}" Background="{StaticResource DarkBrush}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.8">
+            <TextBlock Text="挖矿设置" FontSize="14" Foreground="{StaticResource WhiteBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="304" Padding="10,0,0,0"/>
+            <TextBlock x:Name="btn_Help" Text="?" Foreground="{StaticResource WhiteBrush}" Background="{StaticResource DarkBrush}" FontSize="20" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.8" Padding="7,0,0,0">
                 <TextBlock.Resources>
                     <Style TargetType="TextBlock">
                         <Style.Triggers>
@@ -262,8 +261,7 @@
                     </Style>
                 </TextBlock.Resources>
             </TextBlock>
-            <TextBlock Width="5"/>
-            <Canvas x:Name="btn_Close" Width="24" Height="24" Opacity="0.8">
+            <Canvas x:Name="btn_Close" Width="24" Height="24" Opacity="0.8" Margin="2,0,0,0">
                 <Canvas.Resources>
                     <Style TargetType="{x:Type Canvas}">
                         <Style.Triggers>
