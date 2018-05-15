@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Miner_WPF.Controls"
         mc:Ignorable="d"
-        Title="帮助" Height="460" Width="360" WindowStyle="None" ResizeMode="NoResize"
+        Title="挖矿设置" Height="460" Width="360" WindowStyle="None" ResizeMode="NoResize"
         AllowsTransparency="True"  Background="Transparent" Topmost="True" ShowInTaskbar = "False" Icon="..\设置.png">
     <Window.Resources>
         <!--Name style-->
@@ -33,8 +33,12 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Background="{StaticResource DarkBrush}" Orientation="Horizontal">
-            <TextBlock Text="帮助" FontSize="14" Foreground="{StaticResource WhiteBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="304" Padding="10,0,0,0"/>
-            <Canvas x:Name="btn_Close" Width="24" Height="24" Opacity="0.8" Margin="26,0,0,0">
+            <TextBlock Text="挖矿设置" FontSize="14" Foreground="{StaticResource WhiteBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="290" Padding="10,0,0,0"/>
+            <Canvas Width="20" Height="20">
+                <Ellipse Width="20" Height="20" Fill="{StaticResource WhiteBrush}"/>
+                <TextBlock Text="?" Foreground="{StaticResource DarkBrush}" FontSize="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Top="-2" Padding="5,0,0,0"/>
+            </Canvas>
+            <Canvas x:Name="btn_Close" Width="24" Height="24" Opacity="0.8" Margin="22,0,0,0">
                 <Canvas.Resources>
                     <Style TargetType="{x:Type Canvas}">
                         <Style.Triggers>

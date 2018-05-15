@@ -19,6 +19,7 @@ namespace Miner_WPF
     {
         private readonly int MinThreadCount = (int)Math.Ceiling(Environment.ProcessorCount / 2.0);
         private ConfigWindowViewModel model;
+        private HelpWindow helpWindow = new HelpWindow();
         public WindowConfig()
         {
             InitializeComponent();
@@ -60,14 +61,15 @@ namespace Miner_WPF
                 }
             };
             // View incoming
-            btn_Incoming.Click += (s, e) => Process.Start($"https://{(string.IsNullOrEmpty(model.Config.Url) ? "testnet-pool.ulord.one" : model.Config.Url.Split(':')[0])}/miners/{model.Config.User}");
+            btn_Incoming.Click += (s, e) => Process.Start("iexplore.exe", $"{(string.IsNullOrEmpty(model.Config.Url) ? "testnet-pool.ulord.one" : model.Config.Url.Split(':')[0])}/miners/{model.Config.User}");
             // Mining
             btn_Mining.Click += Btn_Mining_Click;
             // Help
             btn_Help.MouseDown += (s, e) =>
             {
                 this.Hide();
-                HelpWindow helpWindow = new HelpWindow(this.Left, this.Top);
+                helpWindow.Left = this.Left;
+                helpWindow.Top = this.Top;
                 helpWindow.ShowDialog();
                 this.Left = helpWindow.Left;
                 this.Top = helpWindow.Top;

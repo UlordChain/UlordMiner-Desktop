@@ -9,7 +9,7 @@ namespace Miner_WPF.Controls
     /// </summary>
     public partial class HelpWindow : Window
     {
-        public HelpWindow(double x, double y)
+        public HelpWindow()
         {
             InitializeComponent();
             this.MouseLeftButtonDown += (s, e) =>
@@ -26,8 +26,7 @@ namespace Miner_WPF.Controls
             {
                 this.Close();
             };
-            this.Left = x;
-            this.Top = y;
+            this.Closing += (s, e) => { this.Hide(); e.Cancel = true; };
         }
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
