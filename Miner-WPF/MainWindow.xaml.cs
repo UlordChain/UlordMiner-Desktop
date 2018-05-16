@@ -343,6 +343,7 @@ namespace Miner_WPF
                 {
                     MainWindow_LocationChanged(default(object), default(EventArgs));
                 }
+                windowConfig.grid_help.Visibility = Visibility.Hidden;
                 windowConfig.Show();
             }
         }

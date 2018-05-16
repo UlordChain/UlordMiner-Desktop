@@ -9,6 +9,7 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Data;
+using System.Windows.Documents;
 
 namespace Miner_WPF
 {
@@ -61,20 +62,16 @@ namespace Miner_WPF
                 }
             };
             // View incoming
-            btn_Incoming.Click += (s, e) => Process.Start("iexplore.exe", $"{(string.IsNullOrEmpty(model.Config.Url) ? "testnet-pool.ulord.one" : model.Config.Url.Split(':')[0])}/miners/{model.Config.User}");
+            btn_Incoming.Click += (s, e) => Process.Start($"https://{(string.IsNullOrEmpty(model.Config.Url) ? "testnet-pool.ulord.one" : model.Config.Url.Split(':')[0])}/miners/{model.Config.User}");
             // Mining
             btn_Mining.Click += Btn_Mining_Click;
             // Help
             btn_Help.MouseDown += (s, e) =>
             {
-                this.Hide();
-                helpWindow.Left = this.Left;
-                helpWindow.Top = this.Top;
-                helpWindow.ShowDialog();
-                this.Left = helpWindow.Left;
-                this.Top = helpWindow.Top;
-                this.Show();
+                view_help.ScrollToTop();
+                grid_help.Visibility = Visibility.Visible;
             };
+            btn_return.MouseDown += (s, e) => grid_help.Visibility = Visibility.Hidden;
             #endregion
         }
         #region Set perfomance & Start mining, stop mining
@@ -188,6 +185,11 @@ namespace Miner_WPF
             Configuration.SetAutomatic(false);
         }
         #endregion
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start((sender as Hyperlink).NavigateUri.AbsoluteUri);
+        }
     }
     #region Paramter value binding and converter
     public enum ValidateTypes
