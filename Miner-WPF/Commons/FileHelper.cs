@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using System.IO;
 using System.Net;
-using System.Net.Http;
 using System.Text;
 
 namespace Miner_WPF.Commons
@@ -11,15 +10,15 @@ namespace Miner_WPF.Commons
     {
         public static AppInfo GetAppInfo(string url)
         {
-            using (HttpClient httpClient = new HttpClient())
+            using (WebClient webClient = new WebClient() { Proxy = null })
             {
-                string json = httpClient.GetStringAsync(url).Result;
+                string json = webClient.DownloadString(url);
                 return JsonConvert.DeserializeObject<AppInfo>(json);
             }
         }
         public static void DownloadFile(string url, string path)
         {
-            byte[] bytes = new byte[1024 * 256];
+            byte[] bytes = new byte[256 * 1024];
             int length = 0;
             using (WebResponse response = WebRequest.Create(url).GetResponse())
             {
