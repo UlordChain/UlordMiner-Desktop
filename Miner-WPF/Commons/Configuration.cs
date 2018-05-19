@@ -42,7 +42,7 @@ namespace Miner_WPF.Commons
             if (!File.Exists(file) || FileVersionInfo.GetVersionInfo(file).ProductVersion != appInfo.Version.Trim('\n') || FileHelper.ComputeFileMD5(file) != appInfo.MD5.ToUpper())
             {
                 action?.Invoke("正在更新挖矿软件...");
-                FileHelper.DownloadFile(appInfo.Address, file);
+                FileHelper.DownloadFile(appInfo.Address, file, action);
             }
             action?.Invoke("正在校验挖矿软件...");
             validateCode = appInfo.MD5.ToUpper();

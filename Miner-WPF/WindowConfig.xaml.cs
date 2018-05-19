@@ -1,6 +1,5 @@
 ﻿using Contract;
 using Miner_WPF.Commons;
-using Miner_WPF.Controls;
 using Miner_WPF.Models;
 using Miner_WPF.Models.ViewModels;
 using System;
@@ -20,7 +19,6 @@ namespace Miner_WPF
     {
         private readonly int MinThreadCount = (int)Math.Ceiling(Environment.ProcessorCount / 2.0);
         private ConfigWindowViewModel model;
-        private HelpWindow helpWindow = new HelpWindow();
         public WindowConfig()
         {
             InitializeComponent();
