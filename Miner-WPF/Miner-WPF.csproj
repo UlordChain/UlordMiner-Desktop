@@ -7,7 +7,7 @@
     <ProjectGuid>{83A50874-901B-4B77-B6B0-60AEEEA4CD08}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Miner_WPF</RootNamespace>
-    <AssemblyName>UlordMiner</AssemblyName>
+    <AssemblyName>UlordRig</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -179,7 +179,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ulordrig.exe">
+    <None Include="UMiner.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

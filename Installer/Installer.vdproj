@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_077A312EF78712C74CAE309DD4A30ABF"
         "OwnerKey" = "8:_D63B463680700A7B5C6F2F1110F5B564"
         "MsmSig" = "8:_UNDEFINED"
@@ -28,7 +22,7 @@
         "Entry"
         {
         "MsmKey" = "8:_077A312EF78712C74CAE309DD4A30ABF"
-        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
+        "OwnerKey" = "8:_B1EA7A4C4A05491CB786C3EB29C69157"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -57,13 +51,31 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_74F50020B7534D5A9ECBCA74E86D09E7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7B0D76ADA7864892B306A610990666D4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7EBC5B07C41B43C6A82D6C653D33B8FA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_81593586FAF5463BA24256EFBFA5B5CD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_AB9BD5D0F8AB47D488AC3983C16DEB8D"
+        "MsmKey" = "8:_B1EA7A4C4A05491CB786C3EB29C69157"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -75,26 +87,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BC30D2289F47476396A4E58E5653BA8B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C429790A2AB144C385F8203623B85263"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_D0A2F4B4785D4C26B0BF9388815E3B9E"
-        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
+        "OwnerKey" = "8:_B1EA7A4C4A05491CB786C3EB29C69157"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D63B463680700A7B5C6F2F1110F5B564"
-        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
+        "OwnerKey" = "8:_B1EA7A4C4A05491CB786C3EB29C69157"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -105,14 +105,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_EABD810AEF1D2CECC5C48C7B78A393F9"
-        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_F1039B3CFF1F99F06959F1530EB58CC7"
-        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
+        "OwnerKey" = "8:_B1EA7A4C4A05491CB786C3EB29C69157"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -124,19 +118,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EABD810AEF1D2CECC5C48C7B78A393F9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B5B5B256F8C34B3F89FBD56D34CE91CE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
+        "OwnerKey" = "8:_B1EA7A4C4A05491CB786C3EB29C69157"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -171,7 +159,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\UlordMiner.msi"
+        "OutputFilename" = "8:Debug\\UlordRig.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -258,37 +246,6 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_06396BFE81F3467C8FD7DA7743DA1F33"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:UlordMiner, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_06396BFE81F3467C8FD7DA7743DA1F33"
-                    {
-                    "Name" = "8:UlordMiner.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\Miner-WPF\\bin\\Debug\\UlordMiner.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_077A312EF78712C74CAE309DD4A30ABF"
             {
             "AssemblyRegister" = "3:1"
@@ -400,6 +357,66 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_74F50020B7534D5A9ECBCA74E86D09E7"
+            {
+            "SourcePath" = "8:..\\Miner-WPF\\bin\\Debug\\UlordRig.exe.config"
+            "TargetName" = "8:UlordRig.exe.config"
+            "Tag" = "8:"
+            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7B0D76ADA7864892B306A610990666D4"
+            {
+            "SourcePath" = "8:..\\Miner-WPF\\bin\\Debug\\UMiner.exe"
+            "TargetName" = "8:UMiner.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7EBC5B07C41B43C6A82D6C653D33B8FA"
+            {
+            "SourcePath" = "8:..\\Miner-WPF\\bin\\Debug\\UlordRig.pdb"
+            "TargetName" = "8:UlordRig.pdb"
+            "Tag" = "8:"
+            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_81593586FAF5463BA24256EFBFA5B5CD"
             {
             "SourcePath" = "8:..\\Miner-WPF\\bin\\Debug\\Newtonsoft.Json.xml"
@@ -420,10 +437,21 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AB9BD5D0F8AB47D488AC3983C16DEB8D"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B1EA7A4C4A05491CB786C3EB29C69157"
             {
-            "SourcePath" = "8:..\\Miner-WPF\\bin\\Debug\\UlordMiner.exe.config"
-            "TargetName" = "8:UlordMiner.exe.config"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:UlordRig, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_B1EA7A4C4A05491CB786C3EB29C69157"
+                    {
+                    "Name" = "8:UlordRig.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\Miner-WPF\\bin\\Debug\\UlordRig.exe"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
             "Condition" = "8:"
@@ -457,46 +485,6 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A0D6439DC64A4A06B7307CFC9FC486B7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC30D2289F47476396A4E58E5653BA8B"
-            {
-            "SourcePath" = "8:..\\Miner-WPF\\bin\\Debug\\UlordMiner.pdb"
-            "TargetName" = "8:UlordMiner.pdb"
-            "Tag" = "8:"
-            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C429790A2AB144C385F8203623B85263"
-            {
-            "SourcePath" = "8:..\\Miner-WPF\\bin\\Debug\\ulordrig.exe"
-            "TargetName" = "8:ulordrig.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -556,37 +544,6 @@
                     }
                 }
             "SourcePath" = "8:Common.DLL"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EABD810AEF1D2CECC5C48C7B78A393F9"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:TRUE"
-            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_EABD810AEF1D2CECC5C48C7B78A393F9"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D5638E1C82C5430290132FC536D0E963"
@@ -701,9 +658,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:UlordMiner"
+        "ProductName" = "8:UlordRig"
         "ProductCode" = "8:{9FEF0BD9-010D-403F-A756-36E1F2D499EC}"
-        "PackageCode" = "8:{76C51BDA-3A75-4671-968E-6A53313DA28B}"
+        "PackageCode" = "8:{CF9691C5-90F0-4DC7-89E3-C77B4E478CBB}"
         "UpgradeCode" = "8:{7C34CE82-52CD-48F6-973F-D792B1D4C8EE}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -823,7 +780,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_160859527CB0434FA505F02E323F0CC9"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3E72EA320DB046DC9A6B849CCCB51447"
             {
             "Name" = "8:Ulord挖矿客户端"
             "Arguments" = "8:"
@@ -831,13 +788,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
+            "Target" = "8:_B1EA7A4C4A05491CB786C3EB29C69157"
             "Folder" = "8:_F4EB691AF44B493DB56C420A82BC7317"
             "WorkingFolder" = "8:_D5638E1C82C5430290132FC536D0E963"
             "Icon" = "8:_378BCD659D754737AD4AB0026B11A286"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7D32CEC33A7749C58066B7EDCBA7361F"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CA15278C9898411E8344FFF4E3874A09"
             {
             "Name" = "8:Ulord挖矿客户端"
             "Arguments" = "8:"
@@ -845,7 +802,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_06396BFE81F3467C8FD7DA7743DA1F33"
+            "Target" = "8:_B1EA7A4C4A05491CB786C3EB29C69157"
             "Folder" = "8:_6F19ED9F7F1D497493209B2CA1029E66"
             "WorkingFolder" = "8:_D5638E1C82C5430290132FC536D0E963"
             "Icon" = "8:_378BCD659D754737AD4AB0026B11A286"
