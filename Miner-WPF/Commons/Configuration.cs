@@ -35,7 +35,7 @@ namespace Miner_WPF.Commons
 
         internal static void Init(IMiner minerd, Action<string> action = null)
         {
-            file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UMiner.exe");
+            file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UlordRig.exe");
 
             action?.Invoke("正在获取最新挖矿软件信息...");
             AppInfo appInfo = FileHelper.GetAppInfo("https://testnet-pool.ulord.one/api/rig_stats");

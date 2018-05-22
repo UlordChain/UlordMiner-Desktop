@@ -60,7 +60,24 @@ namespace Miner_WPF
                 }
             };
             // View incoming
-            btn_Incoming.Click += (s, e) => Process.Start($"https://{(string.IsNullOrEmpty(model.Config.Url) ? "testnet-pool.ulord.one" : model.Config.Url.Split(':')[0])}/miners/{model.Config.User}");
+            btn_Incoming.Click += (s, e) =>
+            {
+                string urlFormate = "https://{0}/miners/{1}";
+                string url = "u2pool.org";
+                if (!string.IsNullOrEmpty(model.Config.Url))
+                {
+                    url = model.Config.Url.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries)[0];
+                    if (url == "main-pool.ulorders.com")
+                    {
+                        url = "pool.ulorders.com";
+                    }
+                    else if (url == "backup-pool.ulorders.com")
+                    {
+                        url = "backup-pool.ulorders.com";
+                    }
+                }
+                Process.Start(string.Format(urlFormate, url, model.Config.User));
+            };
             // Mining
             btn_Mining.Click += Btn_Mining_Click;
             // Help

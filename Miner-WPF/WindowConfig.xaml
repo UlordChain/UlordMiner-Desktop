@@ -470,7 +470,7 @@
                     <Label Content="矿池:" Style="{StaticResource NameStyle}"/>
                     <Label Style="{StaticResource DiscrStyle}">
                         <TextBlock TextWrapping="Wrap">
-                        矿池是Ulord、比特币等P2P密码学虚拟货币开采所必须的基础设施，其目标是稳定矿工的收益。矿工通过贡献自己的算力，按比例来获得收益，而矿工贡献的方式是通过提交share。矿池地址设置如u2pool.org:7100。
+                        矿池是Ulord、比特币等P2P密码学虚拟货币开采所必须的基础设施，其目标是稳定矿工的收益。矿工通过贡献自己的算力，按比例来获得收益，而矿工贡献的方式是通过提交share。矿池地址设置如main-pool.ulorders.com:18888。
                         </TextBlock>
                     </Label>
                     <Label Content="地址:" Style="{StaticResource NameStyle}"/>
