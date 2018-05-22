@@ -67,6 +67,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>echo f |xcopy "$(SolutionDir)Miner-WPF\ulordrig.exe" "$(TargetDir)ulordrig.exe" /Y</PostBuildEvent>
+    <PostBuildEvent>echo f |xcopy "$(SolutionDir)Miner-WPF\UMiner.exe" "$(TargetDir)UMiner.exe" /Y</PostBuildEvent>
   </PropertyGroup>
 </Project>

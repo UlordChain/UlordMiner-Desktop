@@ -52,7 +52,7 @@ namespace Test
             Console.ReadLine();
             string configFile = "config.json";
             string request = "Results";
-            string file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ulordrig.exe");
+            string file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UMiner.exe");
             Func<Config, string> format = c => $"-o \"stratum+tcp://{c.Url}\" -u \"{(string.IsNullOrEmpty(c.Id) ? c.User : $"{c.User}.{c.Id}")}\" -p \"{c.Pass}\" -t {c.Thread}  --max-cpu-usage {c.CpuUsage}"/*+" -q"*/;
             #region Load config
             Console.WriteLine("Load last config...");
@@ -72,10 +72,10 @@ namespace Test
             }
             else
             {
-                config.Url = "18.221.153.180:7200";
+                config.Url = "u2pool.org:7100";
                 config.Pass = "x";
-                config.User = "uToXvL3zuQJk1rkw19nGoXPFEmRrmwnREx";
-                config.Id = string.Empty;
+                config.User = "UQhw1PcMUg1TrodymTWWihed7ZonBdkgi6";
+                config.Id = "test";
                 config.Thread = 2;
                 config.CpuUsage = 50;
                 config.Automatic = false;
