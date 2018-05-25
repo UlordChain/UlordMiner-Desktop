@@ -10,14 +10,19 @@ namespace Ulord
     [Export(typeof(IMiner))]
     public class Miner : IMiner
     {
+        private ProcessControl processControl;
         private Connection connection;
+        public Miner()
+        {
+            processControl = new ProcessControl();
+        }
         public bool Alive(string file, string arg)
         {
-            return ProcessControl.ExistProcess(file, arg);
+            return processControl.Alive;
         }
         public bool Terminate(string file)
         {
-            return ProcessControl.TerminateProcess(file);
+            return processControl.TerminateProcess(file);
         }
 
         public IPerformance GetPerformance<T>(string file, string arg, IPEndPoint endPoint, string request, Func<string, T> parseResult, Action<IPerformance, T> setPerformance, out bool alive)
@@ -29,7 +34,7 @@ namespace Ulord
                 {
                     connection = new Connection(endPoint);
                 }
-                T result = connection.Received<T>(request, true, parseResult);
+                T result = connection.Received<T>(request, parseResult);
                 if (result != null)
                 {
                     setPerformance(performance, result);
@@ -38,9 +43,9 @@ namespace Ulord
             return performance;
         }
 
-        public bool Run(string file, string arg, DataReceivedEventHandler outputHandler = default(DataReceivedEventHandler), DataReceivedEventHandler errorHandler = default(DataReceivedEventHandler), EventHandler exitHandler = default(EventHandler))
+        public bool Run(string file, string arg, DataReceivedEventHandler outputHandler = default(DataReceivedEventHandler), DataReceivedEventHandler errorHandler = default(DataReceivedEventHandler))
         {
-            return ProcessControl.CreateProcess(file, arg, outputHandler, errorHandler, exitHandler);
+            return processControl.CreateProcess(file, arg, outputHandler, errorHandler);
         }
     }
 }

@@ -6,6 +6,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 namespace Miner_WPF.Commons
@@ -39,7 +40,8 @@ namespace Miner_WPF.Commons
 
             action?.Invoke("正在获取最新挖矿软件信息...");
             AppInfo appInfo = FileHelper.GetAppInfo("https://testnet-pool.ulord.one/api/rig_stats");
-            if (!File.Exists(file) || FileVersionInfo.GetVersionInfo(file).ProductVersion != appInfo.Version.Trim('\n') || FileHelper.ComputeFileMD5(file) != appInfo.MD5.ToUpper())
+            appInfo.Version = Regex.Match(appInfo.Version, "\\d[\\d\\.]+")?.Value;
+            if (!File.Exists(file) || FileVersionInfo.GetVersionInfo(file).ProductVersion != appInfo.Version || FileHelper.ComputeFileMD5(file) != appInfo.MD5.ToUpper())
             {
                 action?.Invoke("正在更新挖矿软件...");
                 FileHelper.DownloadFile(appInfo.Address, file, action);
@@ -141,7 +143,7 @@ namespace Miner_WPF.Commons
                 TryTerminate();
                 return false;
             }
-            if (miner.Run(file, format(newConfig), outputHandler, errorHandler, exitHandler))
+            if (miner.Run(file, format(newConfig), outputHandler, errorHandler))
             {
                 lock (asyncConfigRoot)
                 {

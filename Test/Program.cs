@@ -52,7 +52,7 @@ namespace Test
             Console.ReadLine();
             string configFile = "config.json";
             string request = "Results";
-            string file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UMiner.exe");
+            string file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UlordRig.exe");
             Func<Config, string> format = c => $"-o \"stratum+tcp://{c.Url}\" -u \"{(string.IsNullOrEmpty(c.Id) ? c.User : $"{c.User}.{c.Id}")}\" -p \"{c.Pass}\" -t {c.Thread}  --max-cpu-usage {c.CpuUsage}"/*+" -q"*/;
             #region Load config
             Console.WriteLine("Load last config...");
