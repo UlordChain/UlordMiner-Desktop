@@ -241,11 +241,6 @@
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_077A312EF78712C74CAE309DD4A30ABF"
-                    {
-                    "Name" = "8:Newtonsoft.Json.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Newtonsoft.Json.DLL"
             "TargetName" = "8:"
@@ -420,14 +415,9 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:UlordMiner, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:UlordMiner, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_BA0F0C72EAAE473CAECEF2F2F50CC799"
-                    {
-                    "Name" = "8:UlordMiner.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\Miner-WPF\\bin\\Debug\\UlordMiner.exe"
             "TargetName" = "8:"
@@ -454,11 +444,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_D0A2F4B4785D4C26B0BF9388815E3B9E"
-                    {
-                    "Name" = "8:Microsoft.Expression.Drawing.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.Expression.Drawing.DLL"
             "TargetName" = "8:"
@@ -485,11 +470,6 @@
             "AssemblyAsmDisplayName" = "8:Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_D63B463680700A7B5C6F2F1110F5B564"
-                    {
-                    "Name" = "8:Common.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Common.DLL"
             "TargetName" = "8:"
@@ -536,11 +516,6 @@
             "AssemblyAsmDisplayName" = "8:Contract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F1039B3CFF1F99F06959F1530EB58CC7"
-                    {
-                    "Name" = "8:Contract.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Contract.DLL"
             "TargetName" = "8:"
@@ -647,15 +622,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:UlordMiner"
-        "ProductCode" = "8:{9FEF0BD9-010D-403F-A756-36E1F2D499EC}"
-        "PackageCode" = "8:{6967CADC-0EA2-4708-8407-0C7E65FB2591}"
+        "ProductCode" = "8:{80E325FD-185C-409A-825F-05E52E3B9E5F}"
+        "PackageCode" = "8:{0138EE57-5FBF-4ABC-8803-42D6F0D58442}"
         "UpgradeCode" = "8:{7C34CE82-52CD-48F6-973F-D792B1D4C8EE}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:Ulord Foundation Ltd."
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://ulord.one/"

@@ -62,18 +62,14 @@ namespace Miner_WPF
             // View incoming
             btn_Incoming.Click += (s, e) =>
             {
-                string urlFormate = "https://{0}/miners/{1}";
-                string url = "u2pool.org";
+                string urlFormate = "http://{0}/miners/{1}";
+                string url = "www.u1pool.com";
                 if (!string.IsNullOrEmpty(model.Config.Url))
                 {
-                    url = model.Config.Url.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries)[0];
-                    if (url == "main-pool.ulorders.com")
+                    string address = model.Config.Url.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries)[0];
+                    if (address != "u1pool.com")
                     {
-                        url = "pool.ulorders.com";
-                    }
-                    else if (url == "backup-pool.ulorders.com")
-                    {
-                        url = "backup-pool.ulorders.com";
+                        url = address;
                     }
                 }
                 Process.Start(string.Format(urlFormate, url, model.Config.User));
