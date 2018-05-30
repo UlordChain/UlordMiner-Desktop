@@ -37,21 +37,43 @@ namespace Miner_WPF.Commons
         internal static void Init(IMiner minerd, Action<string> action = null)
         {
             file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UlordRig.exe");
-
-            action?.Invoke("正在获取最新挖矿软件信息...");
-            AppInfo appInfo = FileHelper.GetAppInfo("https://testnet-pool.ulord.one/api/rig_stats");
-            appInfo.Version = Regex.Match(appInfo.Version, "\\d[\\d\\.]+")?.Value;
-            if (!File.Exists(file) || FileVersionInfo.GetVersionInfo(file).ProductVersion != appInfo.Version || FileHelper.ComputeFileMD5(file) != appInfo.MD5.ToUpper())
+            string md5File = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.bin");
+            string fileMD5 = default(string);
+            try
             {
-                action?.Invoke("正在更新挖矿软件...");
-                FileHelper.DownloadFile(appInfo.Address, file, action);
+                action?.Invoke("正在获取最新挖矿软件信息...");
+                AppInfo appInfo = FileHelper.GetAppInfo("https://testnet-pool.ulord.one/api/rig_stats");
+                appInfo.Version = Regex.Match(appInfo.Version, "\\d[\\d\\.]+")?.Value;
+                if (!File.Exists(file) || FileVersionInfo.GetVersionInfo(file).ProductVersion != appInfo.Version || FileHelper.ComputeFileMD5(file) != appInfo.MD5.ToUpper())
+                {
+                    action?.Invoke("正在更新挖矿软件...");
+                    FileHelper.DownloadFile(appInfo.Address, file, action);
+                }
+                action?.Invoke("正在校验挖矿软件...");
+                validateCode = appInfo.MD5.ToUpper();
+                fileMD5 = FileHelper.ComputeFileMD5(file);
             }
-            action?.Invoke("正在校验挖矿软件...");
-            validateCode = appInfo.MD5.ToUpper();
-            string fileMD5 = FileHelper.ComputeFileMD5(file);
+            catch
+            {
+                try
+                {
+                    validateCode = FileHelper.LoadString(md5File);
+                    fileMD5 = FileHelper.ComputeFileMD5(file);
+                }
+                catch
+                {
+                }
+            }
             if (fileMD5 != validateCode)
             {
                 throw new FileLoadException();
+            }
+            try
+            {
+                FileHelper.SaveString(md5File, validateCode);
+            }
+            catch
+            {
             }
 
             miner = minerd;

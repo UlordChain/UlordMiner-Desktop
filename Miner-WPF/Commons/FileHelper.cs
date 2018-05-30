@@ -10,6 +10,14 @@ namespace Miner_WPF.Commons
 {
     public class FileHelper
     {
+        public static void SaveString(string file, string text)
+        {
+            File.WriteAllBytes(file, Encoding.UTF8.GetBytes(text));
+        }
+        public static string LoadString(string file)
+        {
+            return Encoding.UTF8.GetString(File.ReadAllBytes(file));
+        }
         public static AppInfo GetAppInfo(string url)
         {
             using (WebClient webClient = new WebClient() { Proxy = null, Encoding = Encoding.UTF8 })

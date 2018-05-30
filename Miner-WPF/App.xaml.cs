@@ -29,6 +29,12 @@ namespace Miner_WPF
                     compositionContainer.ComposeParts(this);
                     Configuration.Init(Miner, notifyWindow.SetMessage);
                 }
+                catch (FileLoadException ex)
+                {
+                    Configuration.DebugExceptionHandle(ex);
+                    Configuration.ShowErrMessage("校验文件完整性失败，程序即将退出！");
+                    Environment.Exit(0);
+                }
                 catch (Exception ex)
                 {
                     Configuration.DebugExceptionHandle(ex);
