@@ -74,7 +74,7 @@ namespace Miner_WPF.Commons
             Load();
             request = "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"getMinerParam\"}";
             endPoint = new IPEndPoint(IPAddress.Loopback, 8087);
-            format = c => $"-o \"stratum+tcp://{c.Url}\" -u \"{(string.IsNullOrEmpty(c.Id) ? c.User : $"{c.User}.{c.Id}")}\" -p \"{c.Pass}\" -t {c.Thread} --max-cpu-usage 75";
+            format = c => $"-o \"stratum+tcp://{c.Url}\" -u \"{(string.IsNullOrEmpty(c.Id) ? c.User : $"{c.User}.{c.Id}")}\" -p \"{c.Pass}\" -t {c.Thread}";
 
             parseResult = s =>
             {

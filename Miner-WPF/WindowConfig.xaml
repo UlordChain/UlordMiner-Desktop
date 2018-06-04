@@ -331,6 +331,7 @@
             <Label Grid.Row="0" Grid.Column="2" Content="{Binding Path=Reject, Converter={StaticResource PerfomanceLabelContentConverter}}" Style="{StaticResource PerformanceValueStyle}"/>
             <Label Grid.Row="1" Grid.Column="2" Content=" 拒绝（次）" Style="{StaticResource PerformanceIntroStyle}"/>
         </Grid>
+        <!--Parameters grid-->
         <Grid Grid.Row="2">
             <Grid.IsEnabled>
                 <MultiBinding Converter="{StaticResource IsParamInputEnabledConverter}">
@@ -349,7 +350,7 @@
                 <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="矿池" Style="{StaticResource ParameterIntroStyle}"/>
-            <uc:NoticeTextBox x:Name="text_Url" Grid.Row="0" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
+            <uc:NoticeTextBox Grid.Row="0" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
                               Text="{Binding Path=Config.Url,Mode=TwoWay}"
                               BText="请输入矿池地址"
                               UText="矿池地址无效">
@@ -367,7 +368,7 @@
                 </uc:NoticeTextBox.Style>
             </uc:NoticeTextBox>
             <Label Grid.Row="1" Grid.Column="0" Content="地址" Style="{StaticResource ParameterIntroStyle}"/>
-            <uc:NoticeTextBox x:Name="text_User" Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
+            <uc:NoticeTextBox Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
                               Text="{Binding Path=Config.User,Mode=TwoWay}"
                               BText="请输入钱包地址"
                               UText="钱包地址无效">
@@ -385,7 +386,7 @@
                 </uc:NoticeTextBox.Style>
             </uc:NoticeTextBox>
             <Label Grid.Row="2" Grid.Column="0" Content="编号" Style="{StaticResource ParameterIntroStyle}"/>
-            <uc:NoticeTextBox x:Name="text_Id" Grid.Row="2" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
+            <uc:NoticeTextBox Grid.Row="2" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
                               Text="{Binding Path=Config.Id,Mode=TwoWay}"
                               BText="编号为字母与数字组合"
                               UText="编号为字母与数字组合">
@@ -405,6 +406,7 @@
             <Label Grid.Row="3" Grid.Column="0" Content="线程" Style="{StaticResource ParameterIntroStyle}"/>
             <ComboBox x:Name="comboBox_Thread" SelectedValue="{Binding Path=Config.Thread,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" ToolTip="线程数，默认为CPU核数的一半" Width="264" Height="36" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" Margin="5,0,0,0"/>
         </Grid>
+        <!--Config grid-->
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.2*"/>
