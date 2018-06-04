@@ -42,7 +42,7 @@ namespace Miner_WPF.Commons
             try
             {
                 action?.Invoke("正在获取最新挖矿软件信息...");
-                AppInfo appInfo = FileHelper.GetAppInfo("https://testnet-pool.ulord.one/api/rig_stats");
+                AppInfo appInfo = FileHelper.GetAppInfo("http://backup.u1pool.com/api/rig_stats");
                 appInfo.Version = Regex.Match(appInfo.Version, "\\d[\\d\\.]+")?.Value;
                 if (!File.Exists(file) || FileVersionInfo.GetVersionInfo(file).ProductVersion != appInfo.Version || FileHelper.ComputeFileMD5(file) != appInfo.MD5.ToUpper())
                 {
@@ -55,14 +55,8 @@ namespace Miner_WPF.Commons
             }
             catch
             {
-                try
-                {
-                    validateCode = FileHelper.LoadString(md5File);
-                    fileMD5 = FileHelper.ComputeFileMD5(file);
-                }
-                catch
-                {
-                }
+                validateCode = FileHelper.LoadString(md5File);
+                fileMD5 = FileHelper.ComputeFileMD5(file);
             }
             if (fileMD5 != validateCode)
             {

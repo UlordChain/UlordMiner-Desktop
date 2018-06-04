@@ -181,8 +181,6 @@ namespace Miner_WPF
             {
                 Task.Factory.StartNew(() =>
                 {
-                    Stopwatch stopwatch = new Stopwatch();
-                    stopwatch.Start();
                     this.Dispatcher.Invoke(() =>
                     {
                         if (this.Top < 0)
@@ -207,8 +205,6 @@ namespace Miner_WPF
                             isHidden = false;
                         }
                     });
-                    stopwatch.Stop();
-                    Console.WriteLine($"Show: {stopwatch.Elapsed}");
                 });
             }
         }
@@ -225,8 +221,6 @@ namespace Miner_WPF
                 {
                     Task.Factory.StartNew(() =>
                     {
-                        Stopwatch stopwatch = new Stopwatch();
-                        stopwatch.Start();
                         this.Dispatcher.Invoke(() =>
                         {
                             if (windowConfig.Visibility == Visibility.Visible)
@@ -242,16 +236,12 @@ namespace Miner_WPF
                                 isHidden = true;
                             }
                         });
-                        stopwatch.Stop();
-                        Console.WriteLine($"Top: {stopwatch.Elapsed}");
                     });
                 }
                 else if (this.Left <= windowDirection)
                 {
                     Task.Factory.StartNew(() =>
                     {
-                        Stopwatch stopwatch = new Stopwatch();
-                        stopwatch.Start();
                         this.Dispatcher.Invoke(() =>
                         {
                             if (windowConfig.Visibility == Visibility.Visible)
@@ -267,16 +257,12 @@ namespace Miner_WPF
                                 isHidden = true;
                             }
                         });
-                        stopwatch.Stop();
-                        Console.WriteLine($"Left: {stopwatch.Elapsed}");
                     });
                 }
                 else if (this.Left >= SystemParameters.WorkArea.Width - this.Width - windowDirection)
                 {
                     Task.Factory.StartNew(() =>
                     {
-                        Stopwatch stopwatch = new Stopwatch();
-                        stopwatch.Start();
                         this.Dispatcher.Invoke(() =>
                         {
                             if (windowConfig.Visibility == Visibility.Visible)
@@ -292,8 +278,6 @@ namespace Miner_WPF
                                 isHidden = true;
                             }
                         });
-                        stopwatch.Stop();
-                        Console.WriteLine($"Right: {stopwatch.Elapsed}");
                     });
                 }
             }
